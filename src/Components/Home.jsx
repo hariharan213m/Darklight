@@ -1,99 +1,136 @@
 import React from "react";
-import bgImage from "../assets/background.jpg";
-import progressBg from "../assets/progressBg.jpg";
-import Courses from "./Courses";
+import homeImage from "../assets/10124522.jpg";
+import Progress from "./Progress";
+import DemoClass from "./DemoClass";
+import { Link } from "react-router-dom";
 
 
 const Home = () => {
   return (
     <>
       <section
-        className="container-fluid"
+        className="container"
         style={{
-          padding: "5rem 0",
-          minHeight: "100vh",
-          backgroundImage: `url(${bgImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundColor: "#fff",
         }}
       >
-        <div className="row mx-0 ms-md-5 my-auto">
-          <div
-            className="text-center"
-            style={{ marginTop: "14rem", marginLeft: "30rem" }}
-          >
+        <div className="row align-items-center">
+          <div className="col-12 col-md-6 text-center text-md-start ps-md-5">
             <h1
-              className="bold-header fw-bolder text-light "
-              style={{ fontSize: "6.5rem" }}
+              className="bold-header fw-bolder text-dark"
+              style={{
+                fontSize: "6rem",
+                letterSpacing: "1px",
+              }}
             >
               Darklight Chess <br /> Academy
             </h1>
-            <p style={{ fontSize: "1.7rem", color: "#eee", padding: "1rem 0" }}>
+            <p style={{ fontSize: "1.4rem", color: "#555", padding: "1rem 0" }}>
               Where you learn chess with professionals.
             </p>
-            <button
-              type="button"
-              className="btn btn-primary d-inline-block text-light me-2 fw-bold rounded-4"
-              style={{ fontSize: "1.7rem", padding: ".7rem 3rem" }}
-            >
-              Get Started
-            </button>
-            <button
-              type="button"
-              className="btn btn-dark bg-light text-dark ms-3 fw-bold rounded-4"
-              style={{ fontSize: "1.7rem", padding: ".7rem 3rem" }}
-            >
-              Learn More
-            </button>
+            <div className="d-flex justify-content-center justify-content-md-start">
+              <Link
+                to="courses"
+                className="btn btn-primary d-inline-block text-light me-2 fw-bold rounded-4"
+                style={{
+                  fontSize: "1.5rem",
+                  padding: ".7rem 3rem",
+                }}
+              >
+                Get Started
+              </Link>
+              <button
+                type="button"
+                className="btn btn-outline-dark ms-3 fw-bold rounded-4"
+                style={{
+                  fontSize: "1.5rem",
+                  padding: ".7rem 3rem",
+                }}
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+
+          <div className="col-12 col-md-6 d-flex justify-content-center mt-4 mt-md-0">
+            <img
+              src={homeImage}
+              alt="home-image"
+              className="img-fluid" // Makes image responsive
+              style={{
+                maxWidth: "100%",
+                height: "auto", // Ensures the image maintains its aspect ratio
+              }}
+            />
           </div>
         </div>
       </section>
-      <Courses />
+      <DemoClass />
+      <Progress />
 
-      <div
-        class="container-fluid my-5 d-flex flex-column justify-content-center position-relative"
-        style={{
-          backgroundImage: `url(${progressBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+      <section>
         <div
-          class="row g-4 "
-          style={{
-            padding: "8rem",
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            zIndex: 1,
-          }}
+          className="pt-5 container"
+          style={{ fontFamily: '"Bodoni", serif' }}
         >
-          <div class="col-md-6 col-lg-3" style={{ zIndex: 2 }}>
-            <div class=" text-center p-4 ">
-              <h1 class=" text-light fw-bolder display-1">80+</h1>
-              <h3 class=" text-light">Clients</h3>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class=" text-center p-4">
-              <h1 class=" text-light fw-bolder display-1">7+</h1>
-              <h3 class=" text-light">Countries</h3>
-            </div>
-          </div>
+          <h1
+            className="text-dark fw-bolder text-center display-3"
+            style={{ fontFamily: '"Bodoni", serif' }}
+          >
+            Why Dark Light
+          </h1>
+          <p
+            className="text-dark text-center mt-3"
+            style={{ fontSize: "1.5rem", letterSpacing: 1.2 }}
+          >
+            We make your children learn chess with engaging activities
+            throughout the classes, They don’t learn only chess but also we
+            encourage their curiosity with learning and fun, They learn moral
+            values other than chess Are you looking for learning chess online,
+            Join dark light chess academy where we encourage children and making
+            learning chess a fun
+          </p>
+        </div>
 
-          <div class="col-md-6 col-lg-3">
-            <div class="text-center p-4">
-              <h1 class=" text-light fw-bolder display-1">500+</h1>
-              <h3 class=" text-light">Students Enrolled</h3>
+        <div className="container py-5">
+          <div className="row">
+            <div
+              className="col-md-6 text-center mb-4 mb-md-0"
+              style={{ fontFamily: '"Bodoni", serif' }}
+            >
+              <h1
+                className="text-dark fw-bolder display-4"
+                style={{ fontFamily: '"Bodoni", serif' }}
+              >
+                Vision
+              </h1>
+              <p
+                className="text-dark mt-3"
+                style={{ fontSize: "1.5rem", letterSpacing: 1.2 }}
+              >
+                Our vision is to make each student a chess master and empower
+                professional chess talent to coach students.
+              </p>
             </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3">
-            <div class="text-center p-4">
-              <h1 class=" text-light fw-bolder display-1">25+</h1>
-              <h3 class=" text-light">Chess Coaches</h3>
+            <div className="col-md-6 text-center">
+              <h1
+                className="text-dark fw-bolder display-4"
+                style={{ fontFamily: '"Bodoni", serif' }}
+              >
+                Mission
+              </h1>
+              <p
+                className="text-dark mt-3"
+                style={{ fontSize: "1.5rem", letterSpacing: 1.2 }}
+              >
+                Our mission is to create a virtual place where people from all
+                over the world can learn chess.
+              </p>
             </div>
           </div>
         </div>
-      </div>
+       
+      </section>
     </>
   );
 };

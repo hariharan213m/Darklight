@@ -1,11 +1,12 @@
 import React from "react";
-import progressBg from "../assets/progressBg.jpg";
+import tournament from "../assets/Tabs.jpg";
 import { FaChild } from "react-icons/fa";
 import { FaUserTie } from "react-icons/fa";
 import { FaChess } from "react-icons/fa";
 import { FaChessKing } from "react-icons/fa6";
 import kidChess from "../assets/kid.jpg";
 import { useState } from "react";
+import about1 from "../assets/About1.jpg";
 const About = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -25,15 +26,23 @@ const About = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("Submitting Form Data:", formData); // Log the form data
+    const { name, contactNo, mode, level, location } = formData;
 
-    // Log form data or perform other actions
-    console.log("Name:", formData.name);
-    console.log("Contact Number:", formData.contactNo);
-    console.log("Mode (Online/Offline):", formData.mode);
-    console.log("Level:", formData.level);
-    console.log("Location:", formData.location);
+    // Validate required fields
+    if (!name || !contactNo || !mode || !level || !location) {
+      alert("Please fill in all fields before submitting.");
+      return;
+    }
 
-    // Reset the form after submission
+    const whatsappMessage = `Name: ${formData.name}\nContact No: ${contactNo}\nMode: ${mode}\nLevel: ${level}\nLocation: ${location}`;
+    const phoneNumber = "918124482421";
+    const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
+
+    window.open(whatsappLink, "_blank");
+
     setFormData({
       name: "",
       contactNo: "",
@@ -42,87 +51,191 @@ const About = () => {
       location: "",
     });
   };
+
   return (
-    <section id="about"> 
-      <div
+    <section
+      id="about"
+      style={{
+        background: "#001524",
+        paddingTop: "2rem",
+      }}
+    >
+      {/* <div
         style={{
-          backgroundImage: `url(${progressBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          width: "100%",
+          height: "auto",
+          backgroundColor: "rgb(255, 245, 238)",
+          zIndex: 1,
+          padding: "2% 9%",
         }}
       >
-        <div
-          style={{
-            width: "100%",
-            height: "400px",
-            backgroundColor: "rgba(10, 35, 146, 0.58)",
-            zIndex: 1,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <h1
-            className="text-light fw-bolder text-center"
-            style={{ fontSize: "4rem", padding: "0 2rem" }}
-          >
-            About Us
-          </h1>
+        <div className="row align-items-center">
+         
+          <div className="col-md-6">
+            <h1 className="text-dark fw-bolder" style={{ fontSize: "4rem" }}>
+              About Us
+            </h1>
+            <p style={{ fontSize: "1.7rem", lineHeight: "1.8" }}>
+              Darklight Chess academy was a dream for me and I started it with a
+              aim to empower chess coaches and explore the world of chess with a
+              motive to take chess to all the people across the globe.
+            </p>
+            <p style={{ fontSize: "1.7rem", lineHeight: "1.8" }}>
+              I strongly believe that chess is not only a game but a lifestyle,
+              and chess does not require a age factor to gain knowledge.
+            </p>
+          </div>
+
+
+          <div className="col-md-6 text-center">
+            <img
+              src={about1}
+              alt="About Us"
+              className="img-fluid rounded"
+              style={{
+                maxWidth: "80%",
+                height: "auto",
+                borderRadius: "5px",
+              }}
+            />
+          </div>
         </div>
       </div>
 
-      <div className="pt-5 container" style={{ fontFamily: '"Bodoni", serif' }}>
-        <h1
-          className="text-light fw-bolder text-center display-3"
-          style={{ fontFamily: '"Bodoni", serif' }}
-        >
-          Why Dark Light
-        </h1>
-        <p
-          className="text-light text-center mt-3"
-          style={{ fontSize: "1.5rem", letterSpacing: 1.2 }}
-        >
-          We make your children learn chess with engaging activities throughout
-          the classes, They don’t learn only chess but also we encourage their
-          curiosity with learning and fun, They learn moral values other than
-          chess Are you looking for learning chess online, Join dark light chess
-          academy where we encourage children and making learning chess a fun
-        </p>
-      </div>
+      <div
+        style={{
+          width: "100%",
+          height: "auto",
+          backgroundColor: "rgb(255, 245, 238)",
+          zIndex: 1,
+          padding: "2% 9%",
+        }}
+      >
+        <div className="row align-items-center">
+        
+          <div className="col-md-6 text-center">
+            <img
+              src={about1}
+              alt="About Us"
+              className="img-fluid rounded"
+              style={{
+                maxWidth: "80%",
+                height: "auto",
+                borderRadius: "5px",
+              }}
+            />
+          </div>
+         
 
-      <div className="container py-5">
-        <div className="row">
-          <div
-            className="col-md-6 text-center mb-4 mb-md-0"
-            style={{ fontFamily: '"Bodoni", serif' }}
-          >
-            <h1
-              className="text-light fw-bolder display-4"
-              style={{ fontFamily: '"Bodoni", serif' }}
-            >
-              Vision
+          <div className="col-md-6">
+            <h1 className="text-dark fw-bolder" style={{ fontSize: "4rem" }}>
+              WHAT KEEPS US MOVING
             </h1>
-            <p
-              className="text-light mt-3"
-              style={{ fontSize: "1.5rem", letterSpacing: 1.2 }}
-            >
-              Our vision is to make each student a chess master and empower
-              professional chess talent to coach students.
+            <p style={{ fontSize: "1.7rem", lineHeight: "1.8" }}>
+              The words from the kids and adults who share their experience
+              keeps us moving, “I have won a match with my Siblings/Parents by
+              the way you’ve taught us, and I have won with my classmates by
+              Joining Darklight”. Recently a student from Darklight Chess has
+              won a tournament in Canada by Darklight Coaching, These are the
+              Things that keep us moving.
             </p>
           </div>
-          <div className="col-md-6 text-center">
+        </div>
+      </div>
+
+      <div
+        style={{
+          width: "100%",
+          height: "auto",
+          backgroundColor: "rgb(255, 245, 238)",
+          zIndex: 1,
+          padding: "2% 9%",
+          textAlign: "center",
+        }}
+      >
+        <p style={{ fontSize: "1.7rem" }}>
+          Darklight Chess Academy is a Tamil Nadu based Chess Academy offering
+          professional coaching for all the people no matter if your you’re a
+          beginner or intermediate advanced or master, we train you in the place
+          you lack behind, We Coach you with professionals to make you game
+          professional.
+        </p>
+        <p style={{ fontSize: "1.7rem" }}>
+          So far we have our Chess Coaching running at Kovilpatti and
+          Thoothukudi, 40+ Students in Thoothukudi and 30+ in kovilpatti,
+        </p>
+        <p style={{ fontSize: "1.7rem" }}>
+          Yet we also provide Chess Coaching online, you can master chess from
+          where you are, It’s just one step away, Book a free demo & get to know
+          about our Darklight Chess Coaching and us and master chess from
+          wherever you are, It cost you nothing to try a free demo.
+        </p>
+        <p style={{ fontSize: "1.7rem" }}>
+          Darklight Chess has many coaches at the backend to train and uplift
+          the upcoming generation to learn chess, we have grandmasters and
+          coaches who are experienced in chess field, you have option of
+          selecting your chess coaches by yourselves.
+        </p>
+      </div> */}
+
+      <div
+        style={{
+          width: "100%",
+          height: "auto",
+          backgroundColor: "#fff",
+          zIndex: 1,
+          padding: "4% 9%",
+        }}
+      >
+        <div className="row align-items-center">
+          <div className="col-md-6">
+            {" "}
+            <img
+              src={tournament}
+              alt="About Us"
+              className="img-fluid rounded"
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+                borderRadius: "5px",
+              }}
+            />
+          </div>
+          <div
+            className="col-md-6"
+            style={{ fontSize: "2rem", textAlign: "justify" }}
+          >
             <h1
-              className="text-light fw-bolder display-4"
-              style={{ fontFamily: '"Bodoni", serif' }}
+              className="fw-bolder pb-md-3 text-center"
+              style={{ fontSize: "5rem" }}
             >
-              Mission
+              Dark<span style={{ color: "red" }}>Light</span> Tournaments
             </h1>
-            <p
-              className="text-light mt-3"
-              style={{ fontSize: "1.5rem", letterSpacing: 1.2 }}
-            >
-              Our mission is to create a virtual place where people from all
-              over the world can learn chess.
+            <p className="pb-md-3">
+              Personally we believe in improving students skill through our
+              Fellow academy tournaments to encourage them to learn from their
+              flaws, we also conduct tournaments online.
+            </p>
+            <p className="pb-md-3">
+              During the starting stages of Darklight, we were teaching our
+              friends to win against their opponent and some their siblings and
+              it was fun doing that but as days went we started coaching
+              students from our home, to make chess accessible for all in a
+              professional I started Darklight, this was a motivating factor to
+              Develop a academy.
+            </p>
+            <p className="pb-md-3 text-center">
+              Darklight welcomes students who are willing to master chess and
+              also loves to teach every bit of learning in chess,{" "}
+              <span
+                className="fw-bolder"
+                style={{ color: "red", display: "block" }}
+              >
+                BECAUSE EVERY MOVE MATTERS
+              </span>
+            </p>
+            <p className="pb-md-3 text-center">
+              We strongly believe that age is not a criteria to learn chess.
             </p>
           </div>
         </div>
@@ -242,6 +355,7 @@ const About = () => {
           </p>
         </div>
       </section>
+
       <section className="py-5" style={{ backgroundColor: "#e9eaec" }}>
         <div className="container">
           <h1 className="fw-bold display-4 text-center">Contact Us</h1>
@@ -313,7 +427,7 @@ const About = () => {
             </div>
             <div className="col-md-6 form-group">
               <select
-                className=" form-select floating-input form-control"
+                className="form-select floating-input form-control"
                 style={{ fontSize: "1.5rem" }}
                 id="level"
                 name="level"
@@ -366,7 +480,7 @@ const About = () => {
               </button>
               <button
                 type="submit"
-                className="btn btn-primary "
+                className="btn btn-primary"
                 style={{
                   fontSize: "1.4rem",
                   padding: "6px 14px",

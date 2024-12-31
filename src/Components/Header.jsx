@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { FaBars } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
@@ -34,93 +34,73 @@ const Header = () => {
         id="header"
         className="text-light d-flex align-items-center justify-content-between position-fixed top-0 start-0 end-0"
         style={{
-          backgroundColor: "#001524",
+          // backgroundColor: "#001524",
+          backgroundColor: "#fff",
           padding: "2rem 9%",
           zIndex: 1000,
+          borderBottom: "1px solid #999",
         }}
       >
         <h2
-          className="text-light"
-          style={{ fontWeight: "bolder", fontSize: "2.5rem" }}
+          className="text-dark"
+          style={{ fontWeight: "bolder", fontSize: "3rem" }}
         >
           LOGO
         </h2>
-        {!isVisible ? (
-          <div
-            id="menu-bar"
-            className="text-light d-md-none d-block"
-            style={{ fontSize: "3rem", cursor: "pointer" }}
-            onClick={toggleVisibility}
+        {/* Mobile Menu Toggle Button */}
+        <div
+          id="menu-bar"
+          className="text-dark d-md-none"
+          style={{ fontSize: "3rem", cursor: "pointer" }}
+          onClick={toggleVisibility}
+        >
+          {isVisible ? <IoClose /> : <FaBars />}
+        </div>
+        <nav
+          className={`${
+            isVisible ? "d-block" : "d-none"
+          } d-md-flex align-items-center`}
+        >
+          <ul
+            className="list-unstyled d-flex flex-column flex-md-row"
+            style={{ fontSize: "1.8rem" }}
           >
-            <FaBars />
-          </div>
-        ) : (
-          <div
-            className="text-light d-md-none d-block"
-            style={{
-              fontSize: "3rem",
-              cursor: "pointer",
-              transform: "rotate(180deg)",
-            }}
-            onClick={toggleVisibility}
-          >
-            <IoClose />
-          </div>
-        )}
-        {isVisible && (
-          <nav>
-            <ul
-              className="list-unstyled d-flex flex-column flex-md-row"
-              style={{ fontSize: "1.7rem" }}
+            <li className="mx-3">
+              <Link to="/" className="text-decoration-none text-dark">
+                Home
+              </Link>
+            </li>
+            <li className="mx-3">
+              <Link to="courses" className=" text-decoration-none text-dark">
+                Courses
+              </Link>
+            </li>
+            <li className="mx-3">
+              <Link to="events" className=" text-decoration-none text-dark">
+                Events
+              </Link>
+            </li>
+            <li className="mx-3">
+              <Link to="gallery" className=" text-decoration-none text-dark">
+                Gallery
+              </Link>
+            </li>
+            <li className="mx-3">
+              <Link to="about" className=" text-decoration-none text-dark">
+                About
+              </Link>
+            </li>
+          </ul>
+          {userLoggedIn && (
+            <button
+              onClick={handleLogout}
+              className="btn btn-danger fw-bold"
+              style={{ padding: ".5rem 1rem", fontSize: "1.5rem" }}
             >
-              <li className="mx-3">
-                <Link to="/" className="text-decoration-none text-light">
-                  Home
-                </Link>
-              </li>
-              <li className="mx-3">
-                <Link to="courses" className=" text-decoration-none text-light">
-                  Courses
-                </Link>
-              </li>
-              <li className="mx-3">
-                <Link to="blogs" className=" text-decoration-none text-light">
-                  Blogs
-                </Link>
-              </li>
-              <li className="mx-3">
-                <Link to="gallery" className=" text-decoration-none text-light">
-                  Gallery
-                </Link>
-              </li>
-              <li className="mx-3">
-                <Link to="about" className=" text-decoration-none text-light">
-                  About
-                </Link>
-              </li>
-            </ul>
-            {userLoggedIn ? (
-              <button
-                onClick={handleLogout}
-                className="text-sm text-blue-600 underline"
-              >
-                Logout
-              </button>
-            ) : (
-              <>
-                <Link className="text-sm text-blue-600 underline" to="/login">
-                  Login
-                </Link>
-                <Link
-                  className="text-sm text-blue-600 underline"
-                  to="/register"
-                >
-                  Register New Account
-                </Link>
-              </>
-            )}
-          </nav>
-        )}
+              Logout
+            </button>
+          )}
+        </nav>
       </div>
     </section>
   );

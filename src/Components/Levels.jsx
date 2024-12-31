@@ -3,34 +3,63 @@ import { useState } from "react";
 
 const Levels = () => {
   const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    contactNo: "",
+    mode: "",
+    level: "",
+    location: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
   const handleShow = () => setShowModal(true);
   const handleClose = () => setShowModal(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const formData = new FormData(e.target);
-    const name = formData.get("name");
-    const contactNo = formData.get("contactNo");
-    const mode = formData.get("mode");
-    const level = formData.get("level");
-    const location = formData.get("location");
-
-    // Log form data or perform other actions
-    console.log("Name:", name);
-    console.log("Contact Number:", contactNo);
-    console.log("Mode (Online/Offline):", mode);
-    console.log("Level:", level);
-    console.log("Location:", location);
-
-    // Close the modal after submission
     handleClose();
     e.target.reset();
+
+    console.log("Submitting Form Data:", formData); // Log the form data
+    const { name, contactNo, mode, level, location } = formData;
+
+    // Validate required fields
+    if (!name || !contactNo || !mode || !level || !location) {
+      alert("Please fill in all fields before submitting.");
+      return;
+    }
+
+    const whatsappMessage = `Name: ${formData.name}\nContact No: ${contactNo}\nMode: ${mode}\nLevel: ${level}\nLocation: ${location}`;
+    const phoneNumber = "918124482421";
+    const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
+
+    window.open(whatsappLink, "_blank");
+
+    setFormData({
+      name: "",
+      contactNo: "",
+      mode: "",
+      level: "",
+      location: "",
+    });
   };
 
   return (
-    <section className="container-fluid my-5">
+    <section
+      className="container-fluid my-5"
+      style={{
+        background: "#001524",
+      }}
+    >
       <div className="row justify-content-center g-4">
         <div className="row ">
           <div
@@ -239,8 +268,8 @@ const Levels = () => {
             tabIndex="-1"
             style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
           >
-            <div className="modal-dialog" >
-              <div className="modal-content" style={{padding:'30px 45px'}}>
+            <div className="modal-dialog">
+              <div className="modal-content" style={{ padding: "30px 45px" }}>
                 <div className="modal-header">
                   <div>
                     <h5
@@ -275,6 +304,8 @@ const Levels = () => {
                         Name
                       </label>
                       <input
+                        value={formData.name}
+                        onChange={handleChange}
                         type="text"
                         className="form-control"
                         id="name"
@@ -293,6 +324,8 @@ const Levels = () => {
                         Contact Number
                       </label>
                       <input
+                        value={formData.contactNo}
+                        onChange={handleChange}
                         style={{ fontSize: "12px", padding: "10px" }}
                         type="tel"
                         className="form-control"
@@ -316,6 +349,8 @@ const Levels = () => {
                         id="mode"
                         name="mode"
                         required
+                        value={formData.mode}
+                        onChange={handleChange}
                       >
                         <option
                           value=""
@@ -343,6 +378,8 @@ const Levels = () => {
                         name="level"
                         required
                         style={{ fontSize: "12px", padding: "10px" }}
+                        value={formData.level}
+                        onChange={handleChange}
                       >
                         <option value="" disabled selected>
                           Choose level
@@ -363,6 +400,8 @@ const Levels = () => {
                         Location
                       </label>
                       <input
+                        value={formData.location}
+                        onChange={handleChange}
                         type="text"
                         className="form-control"
                         id="location"

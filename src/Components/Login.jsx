@@ -1,18 +1,27 @@
 import React, { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
-import {
-  doSignInWithEmailAndPassword,
-  doSignInWithGoogle,
-} from "../firebase/auth";
+import { doSignInWithEmailAndPassword } from "../firebase/auth"; 
 import { useAuth } from "../contexts/authContext";
+import { useNavigate } from "react-router-dom";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "../firebase/firebase";
 
-const Login = () => {
+const Login = ({ onLogin }) => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [error, setError] = useState("");
+  const { user } = useAuth(); 
 
-  const { user } = useAuth(); // Assuming `useAuth` provides user state
+  const handleLogin = (e) => {
+    e.preventDefault(); 
+    onLogin(); 
+    navigate("/"); 
+  };
+
+  // const goToRegister = () => {
+  //   navigate("/register");
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,28 +35,29 @@ const Login = () => {
     }
 
     try {
-      const userCredential = await doSignInWithEmailAndPassword(
-        email,
-        password
-      );
-      console.log("Signed in:", userCredential.user);
-      // Redirect or handle user data here
+      await doSignInWithEmailAndPassword(email, password);
+      console.log("Signed in with email:", email);
+      onLogin(); 
+      navigate("/"); 
     } catch (error) {
       console.error("Error signing in:", error.message);
+      setError("Invalid email or password. Please try again.");
     }
   };
 
-  const handleGoogleSignIn = async (e) => {
-    e.preventDefault();
-    setError(""); // Clear previous error
-    setIsLoggedIn(false); // Reset login state initially
+  const handleGoogleSignIn = async () => {
+    const provider = new GoogleAuthProvider();
 
     try {
-      await doSignInWithGoogle();
-      setIsLoggedIn(true);
+      const result = await signInWithPopup(auth, provider); 
+      const user = result.user; 
+      console.log("Signed in with Google:", user);
+
+      onLogin(); 
+      navigate("/"); 
     } catch (err) {
+      console.error("Google Sign-In failed:", err.message);
       setError(err.message || "Google sign-in failed. Please try again.");
-      setIsLoggedIn(false);
     }
   };
 
@@ -110,12 +120,16 @@ const Login = () => {
             type="submit"
             className="btn btn-primary w-100 mb-3 fw-bold"
             style={{ fontSize: "1.4rem", padding: "8px", letterSpacing: 1 }}
+            onClick={handleLogin}
           >
-            {isLoggedIn ? "Logging in..." : "Login"}
+            Login
           </button>
           <div className="text-center mt-3">
             <p style={{ fontSize: "1.2rem" }}>
-              Don't have an account? <Link to="/register">Sign up</Link>
+              Don't have an account?{" "}
+              <Link onClick={() => navigate("/register")} to="/register">
+                Sign up
+              </Link>
             </p>
           </div>
         </form>
