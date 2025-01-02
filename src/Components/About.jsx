@@ -60,123 +60,125 @@ const About = () => {
         paddingTop: "2rem",
       }}
     >
-      {/* <div
+      <div
+        className="row"
         style={{
           width: "100%",
           height: "auto",
-          backgroundColor: "rgb(255, 245, 238)",
+          backgroundColor: "#fff",
           zIndex: 1,
           padding: "2% 9%",
         }}
       >
-        <div className="row align-items-center">
-         
-          <div className="col-md-6">
-            <h1 className="text-dark fw-bolder" style={{ fontSize: "4rem" }}>
-              About Us
-            </h1>
-            <p style={{ fontSize: "1.7rem", lineHeight: "1.8" }}>
-              Darklight Chess academy was a dream for me and I started it with a
-              aim to empower chess coaches and explore the world of chess with a
-              motive to take chess to all the people across the globe.
+        <div className="col-md-4">
+          <div className=" p-4">
+            <div className="d-flex flex-column align-items-center">
+              <div className="text-center me-4 mb-md-4 mb-sm-2">
+                <img
+                  src={about1}
+                  alt="About Us"
+                  className="img-fluid rounded-circle"
+                  style={{
+                    width: "25rem",
+                    height: "25rem",
+                  }}
+                />
+              </div>
+              <div className="text-center">
+                <h1
+                  className="text-dark fw-bolder mb-3"
+                  style={{ fontSize: "2.5rem" }}
+                >
+                  About Us
+                </h1>
+                <p style={{ fontSize: "1.7rem", lineHeight: "1.8" }}>
+                  Darklight Chess academy was a dream for me, and I started it
+                  with an aim to empower chess coaches and explore the world of
+                  chess with a motive to take chess to all the people across the
+                  globe.
+                </p>
+                <p style={{ fontSize: "1.7rem", lineHeight: "1.8" }}>
+                  I strongly believe that chess is not only a game but a
+                  lifestyle, and chess does not require an age factor to gain
+                  knowledge.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="col-md-4">
+          <div
+            style={{
+              width: "100%",
+              height: "auto",
+              backgroundColor: "rgb(255, 245, 238)",
+              zIndex: 1,
+              padding: "2% 9%",
+              textAlign: "center",
+            }}
+          >
+            <p style={{ fontSize: "1.7rem" }}>
+              Darklight Chess Academy is a Tamil Nadu based Chess Academy
+              offering professional coaching for all the people no matter if
+              your you’re a beginner or intermediate advanced or master, we
+              train you in the place you lack behind, We Coach you with
+              professionals to make you game professional.
             </p>
-            <p style={{ fontSize: "1.7rem", lineHeight: "1.8" }}>
-              I strongly believe that chess is not only a game but a lifestyle,
-              and chess does not require a age factor to gain knowledge.
+            <p style={{ fontSize: "1.7rem" }}>
+              So far we have our Chess Coaching running at Kovilpatti and
+              Thoothukudi, 40+ Students in Thoothukudi and 30+ in kovilpatti,
+            </p>
+            <p style={{ fontSize: "1.7rem" }}>
+              Yet we also provide Chess Coaching online, you can master chess
+              from where you are, It’s just one step away, Book a free demo &
+              get to know about our Darklight Chess Coaching and us and master
+              chess from wherever you are, It cost you nothing to try a free
+              demo.
+            </p>
+            <p style={{ fontSize: "1.7rem" }}>
+              Darklight Chess has many coaches at the backend to train and
+              uplift the upcoming generation to learn chess, we have
+              grandmasters and coaches who are experienced in chess field, you
+              have option of selecting your chess coaches by yourselves.
             </p>
           </div>
+        </div>
 
-
-          <div className="col-md-6 text-center">
-            <img
-              src={about1}
-              alt="About Us"
-              className="img-fluid rounded"
-              style={{
-                maxWidth: "80%",
-                height: "auto",
-                borderRadius: "5px",
-              }}
-            />
+        <div className="col-md-4">
+          <div className=" p-4">
+            <div className="d-flex flex-column align-items-center">
+              <div className="text-center me-4 mb-md-4 mb-sm-2">
+                <img
+                  src={about1}
+                  alt="About Us"
+                  className="img-fluid rounded-circle"
+                  style={{
+                    width: "25rem",
+                    height: "25rem",
+                  }}
+                />
+              </div>
+              <div className="text-center">
+                <h1
+                  className="text-dark fw-bolder mb-3"
+                  style={{ fontSize: "2.5rem" }}
+                >
+                  WHAT KEEPS US MOVING
+                </h1>
+                <p style={{ fontSize: "1.7rem", lineHeight: "1.8" }}>
+                  The words from the kids and adults who share their experience
+                  keeps us moving, “I have won a match with my Siblings/Parents
+                  by the way you’ve taught us, and I have won with my classmates
+                  by Joining Darklight”. Recently a student from Darklight Chess
+                  has won a tournament in Canada by Darklight Coaching, These
+                  are the Things that keep us moving.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <div
-        style={{
-          width: "100%",
-          height: "auto",
-          backgroundColor: "rgb(255, 245, 238)",
-          zIndex: 1,
-          padding: "2% 9%",
-        }}
-      >
-        <div className="row align-items-center">
-        
-          <div className="col-md-6 text-center">
-            <img
-              src={about1}
-              alt="About Us"
-              className="img-fluid rounded"
-              style={{
-                maxWidth: "80%",
-                height: "auto",
-                borderRadius: "5px",
-              }}
-            />
-          </div>
-         
-
-          <div className="col-md-6">
-            <h1 className="text-dark fw-bolder" style={{ fontSize: "4rem" }}>
-              WHAT KEEPS US MOVING
-            </h1>
-            <p style={{ fontSize: "1.7rem", lineHeight: "1.8" }}>
-              The words from the kids and adults who share their experience
-              keeps us moving, “I have won a match with my Siblings/Parents by
-              the way you’ve taught us, and I have won with my classmates by
-              Joining Darklight”. Recently a student from Darklight Chess has
-              won a tournament in Canada by Darklight Coaching, These are the
-              Things that keep us moving.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div
-        style={{
-          width: "100%",
-          height: "auto",
-          backgroundColor: "rgb(255, 245, 238)",
-          zIndex: 1,
-          padding: "2% 9%",
-          textAlign: "center",
-        }}
-      >
-        <p style={{ fontSize: "1.7rem" }}>
-          Darklight Chess Academy is a Tamil Nadu based Chess Academy offering
-          professional coaching for all the people no matter if your you’re a
-          beginner or intermediate advanced or master, we train you in the place
-          you lack behind, We Coach you with professionals to make you game
-          professional.
-        </p>
-        <p style={{ fontSize: "1.7rem" }}>
-          So far we have our Chess Coaching running at Kovilpatti and
-          Thoothukudi, 40+ Students in Thoothukudi and 30+ in kovilpatti,
-        </p>
-        <p style={{ fontSize: "1.7rem" }}>
-          Yet we also provide Chess Coaching online, you can master chess from
-          where you are, It’s just one step away, Book a free demo & get to know
-          about our Darklight Chess Coaching and us and master chess from
-          wherever you are, It cost you nothing to try a free demo.
-        </p>
-        <p style={{ fontSize: "1.7rem" }}>
-          Darklight Chess has many coaches at the backend to train and uplift
-          the upcoming generation to learn chess, we have grandmasters and
-          coaches who are experienced in chess field, you have option of
-          selecting your chess coaches by yourselves.
-        </p>
-      </div> */}
 
       <div
         style={{
