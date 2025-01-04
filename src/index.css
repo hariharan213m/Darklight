@@ -153,8 +153,7 @@ button {
   button {
     font-size: 0.875rem;
   }
-  #footer{
-
+  #footer {
   }
 }
 
@@ -172,6 +171,9 @@ button {
 
   #header {
     padding: 2rem 4%;
+  }
+  #about {
+    margin-top: 2rem;
   }
 }
 
