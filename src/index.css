@@ -75,17 +75,17 @@ a.text-decoration-none.text-dark:hover {
   width: 100%;
   font-size: 1rem;
   padding: 0.5rem 0;
-  box-shadow: none; 
+  box-shadow: none;
   transition: border-color 0.3s ease;
 }
 
 .floating-input:focus {
-  border-bottom: 2px solid #007bff; 
+  border-bottom: 2px solid #007bff;
 }
 
 .floating-input:focus-visible,
 .floating-input:focus:not(:focus-visible) {
-  outline: none; 
+  outline: none;
 }
 .form-control {
   border: none;
@@ -162,6 +162,11 @@ button {
   section {
     padding: 3rem 3%;
   }
+  .logo {
+    width: 80px;
+    height: 20px;
+  }
+
   #header {
     padding: 2rem 4%;
   }
@@ -177,15 +182,17 @@ button {
     border-top: 0.1rem solid #fff3;
     padding: 1rem 2rem;
   }
+  .logo {
+    width: 70px; /* Reduced width for mobile */
+    height: 28px;
+  }
 
   #header li {
+    width: 100%;
     display: block;
-    text-align: center;
-    margin: 1.5rem 0;
+    margin: 1rem 0;
     padding: 1rem;
-    background: rgb(229, 228, 226);
     font-size: 2rem;
-    border-radius: 1rem;
   }
 }
 

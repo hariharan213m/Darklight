@@ -72,20 +72,21 @@ const Header = () => {
           }}
         >
           <img
+            className="logo"
             src={logo}
             alt="Website Logo"
             style={{
-              marginTop: "10px",
-              width: "80px", // Adjusted size to make it smaller
+             
+              width: "100px", // Default size
               height: "40px",
             }}
           />
           <span
             className="text-dark"
             style={{
-              margin: "0", // Removes default margin
-              fontSize: "1rem", // Adjust text size for better alignment
-              textAlign: "center", // Center aligns text below the image
+              margin: "0",
+              fontSize: "1rem",
+              textAlign: "center",
             }}
           >
             A pawn can defeat the king
@@ -103,7 +104,8 @@ const Header = () => {
           {isVisible ? <IoClose /> : <FaBars />}
         </div>
         <nav
-          style={{ padding: "2rem 9%" }}
+          id="nav"
+          style={{ padding: "1rem 9%" }}
           ref={menuRef}
           className={`${
             isVisible ? "d-block" : "d-none"
@@ -158,19 +160,18 @@ const Header = () => {
                 About
               </Link>
             </li>
-            <li>
-              <Link
-                to="login"
-                className="btn btn-primary d-inline-block text-light ms-4 fw-bold rounded-2"
-                style={{
-                  fontSize: "1.5rem",
-                  padding: ".4rem 1.5rem",
-                }}
-              >
-                Login
-              </Link>
-            </li>
           </ul>
+          <Link
+            id="login"
+            to="login"
+            className="btn btn-primary d-inline-block text-light ms-4 fw-bold rounded-4 mb-3 w-100 w-md-25"
+            style={{
+              fontSize: "1.5rem",
+              padding: ".4rem 1.5rem",
+            }}
+          >
+            Login
+          </Link>
           {userLoggedIn && (
             <button
               onClick={handleLogout}
