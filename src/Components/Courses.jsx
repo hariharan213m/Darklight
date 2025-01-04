@@ -445,10 +445,10 @@ const Courses = () => {
               style={{ fontFamily: "'Bodoni', serif" }}
             >
               <h1
-                className="fw-bold "
+                className="fw-bold display-2"
                 style={{
                   color: "	#009E60",
-                  fontSize: "4.5rem",
+
                   fontFamily: "'Bodoni', serif",
                   letterSpacing: ".5px",
                 }}

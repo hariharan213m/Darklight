@@ -3,6 +3,7 @@ import { FaBars } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import { doSignOut } from "../firebase/auth";
+import logo from "../assets/Darklight.png";
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -55,17 +56,42 @@ const Header = () => {
         className="text-light d-flex align-items-center justify-content-between position-fixed top-0 start-0 end-0"
         style={{
           backgroundColor: "#fff",
-          padding: "2rem 9%",
+
           zIndex: 1000,
           borderBottom: "1px solid #999",
         }}
       >
-        <h2
-          className="text-dark"
-          style={{ fontWeight: "bolder", fontSize: "3rem" }}
+        {/* Logo Section */}
+        <div
+          style={{
+            paddingLeft: "9%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
         >
-          LOGO
-        </h2>
+          <img
+            src={logo}
+            alt="Website Logo"
+            style={{
+              marginTop: "10px",
+              width: "80px", // Adjusted size to make it smaller
+              height: "40px",
+            }}
+          />
+          <span
+            className="text-dark"
+            style={{
+              margin: "0", // Removes default margin
+              fontSize: "1rem", // Adjust text size for better alignment
+              textAlign: "center", // Center aligns text below the image
+            }}
+          >
+            A pawn can defeat the king
+          </span>
+        </div>
+
         {/* Mobile Menu Toggle Button */}
         <div
           id="menu-bar"
@@ -77,6 +103,7 @@ const Header = () => {
           {isVisible ? <IoClose /> : <FaBars />}
         </div>
         <nav
+          style={{ padding: "2rem 9%" }}
           ref={menuRef}
           className={`${
             isVisible ? "d-block" : "d-none"

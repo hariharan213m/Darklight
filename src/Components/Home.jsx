@@ -81,7 +81,7 @@ const Home = () => {
         }}
       >
         <div className="container text-center pb-5">
-          <h2 className="fw-bold display-4 text-primary">
+          <h2 className="fw-bold display-2 text-primary">
             <FaChild className="me-2" /> Child Centric
           </h2>
           <p className="lead text-muted" style={{ fontSize: "1.5rem" }}>
@@ -91,36 +91,75 @@ const Home = () => {
         </div>
 
         <div className="container row align-items-center ">
-          <div className="col-md-6">
-            <div className=" mb-5">
-              <div className=" text-center">
-                <FaUserTie className="text-primary display-3 mb-3" />
-                <h3 className="fw-bold">Trained & Experienced Staff</h3>
-                <p className="text-muted" style={{ fontSize: "1.5rem" }}>
-                  Our coaches are certified professionals dedicated to your
-                  child's growth.
-                </p>
+          <div className="col-md-6 col-lg-6 col-sm-12">
+            <div className=" h-100 d-flex border-0">
+              <div className="d-flex align-items-center">
+                <div
+                  className="icon text-primary me-5 "
+                  style={{ fontSize: "3.5rem", marginBottom: "5rem" }}
+                >
+                  <FaUserTie />
+                </div>
+                <div>
+                  <h5
+                    className="mb-2 text-uppercase fw-bold"
+                    style={{ fontSize: "2rem" }}
+                  >
+                    Trained & Experienced Staff
+                  </h5>
+                  <p style={{ fontSize: "1.5rem" }}>
+                    Our coaches are certified professionals dedicated to your
+                    child's growth.
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div className=" mb-5">
-              <div className=" text-center">
-                <FaChessKing className="text-primary display-3 mb-3" />
-                <h3 className="fw-bold">Engaging Playful Activity</h3>
-                <p className="text-muted" style={{ fontSize: "1.5rem" }}>
-                  Interactive sessions to keep children excited and curious
-                  about chess.
-                </p>
+            <div className=" h-100 d-flex border-0">
+              <div className="d-flex align-items-center">
+                <div
+                  className="icon text-primary me-5"
+                  style={{ fontSize: "3.5rem", marginBottom: "5rem" }}
+                >
+                  <FaChessKing />
+                </div>
+                <div>
+                  <h5
+                    className="mb-2 text-uppercase fw-bold"
+                    style={{ fontSize: "2rem" }}
+                  >
+                    Engaging Playful Activity
+                  </h5>
+                  <p style={{ fontSize: "1.5rem" }}>
+                    Interactive sessions to keep children excited and curious
+                    about chess.
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div>
-              <div className="text-center">
-                <FaChess className="text-primary display-3 mb-3" />
-                <h3 className="fw-bold">Child Friendly</h3>
-                <p className="text-muted" style={{ fontSize: "1.5rem" }}>
-                  A safe, fun environment tailored for young learners.
-                </p>
+            <div className=" h-100 d-flex border-0">
+              <div
+                className="d-flex align-items-center"
+                style={{ lineHeight: "2" }}
+              >
+                <div
+                  className="icon text-primary me-5"
+                  style={{ fontSize: "3.5rem", marginBottom: "5rem" }}
+                >
+                  <FaChess />
+                </div>
+                <div>
+                  <h5
+                    className="mb-2 text-uppercase fw-bold"
+                    style={{ fontSize: "2rem" }}
+                  >
+                    Child Friendly
+                  </h5>
+                  <p style={{ fontSize: "1.5rem" }}>
+                    A safe, fun environment tailored for young learners.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -130,7 +169,10 @@ const Home = () => {
               loading="lazy"
               alt="Child Centric"
               className="img-fluid rounded-4"
-              style={{ maxWidth: "550px" }}
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+              }}
             />
           </div>
         </div>

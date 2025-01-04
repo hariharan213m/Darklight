@@ -66,50 +66,70 @@ const DemoClass = () => {
         padding: "4% 9%",
       }}
     >
-      <div className="row align-items-center">
-        <div className="col-md-6 d-flex flex-column align-items-center pe-5">
-          <img
-            src={courseImg}
-            alt="About Us"
-            className="img-fluid rounded-5"
-            loading="lazy"
-            style={{
-              maxWidth: "80%",
-              height: "auto",
-              borderRadius: "5px",
-            }}
-          />
-        </div>
-        <div className="col-md-6 d-flex flex-column align-items-center text-center pe-5">
-          <h1 className="fw-bold display-2 text-center my-4">Courses</h1>
-          <p
-            className="my-5"
-            style={{ fontSize: "1.8rem", lineHeight: "30px" }}
-          >
-            Book a free demo to get know about our Darklight coaching and to
-            asses levels in chess, whether your a beginner, intermediate or
-            advanced player in chess, our coaches has plans to teach you, Ready
-            for a adventure of Chess ? Join our free demo, To Explore the world
-            of chess.
-          </p>
-          <p style={{ fontSize: "1.8rem", lineHeight: "30px" }}>
-            Plus, connect with like-minded chess enthusiasts in a vibrant and
-            supportive community that shares your passion for the game.
-          </p>
-          <div className="my-5">
-            <button
-              className="btn btn-primary d-inline-block text-light me-2 fw-bold rounded-4"
-              onClick={handleShow}
-              style={{
-                fontSize: "1.5rem",
-                padding: "1rem 2.5rem",
-              }}
-            >
-              Book A Demo
-            </button>
+      {/* Title */}
+      <h1 className="fw-bold display-2 my-5 text-center">
+        Book A Free Demo Class
+      </h1>
+      <div className="row justify-content-center">
+        <div
+          className=" shadow rounded-4 p-3"
+          style={{
+            maxWidth: "1200px",
+            backgroundColor: "#f9f9f9",
+            border: "none",
+          }}
+        >
+          <div className="row g-0 align-items-center">
+            {/* Left Image Section */}
+            <div className="col-md-6 d-flex justify-content-center">
+              <img
+                src={courseImg}
+                alt="About Us"
+                className="img-fluid rounded-start"
+                loading="lazy"
+                style={{
+                  width: "80%",
+                  height: "auto",
+                  borderRadius: "0.5rem 0 0 0.5rem", // Rounded corners for the left side
+                }}
+              />
+            </div>
+
+            {/* Right Content Section */}
+            <div className="col-md-6">
+              <p
+                className="mb-4"
+                style={{ fontSize: "1.5rem", lineHeight: "1.8" }}
+              >
+                Book a free demo to get to know about our Darklight coaching and
+                to assess levels in chess. Whether you're a beginner,
+                intermediate, or advanced player, our coaches have plans to
+                teach you. Ready for an adventure in Chess? Join our free demo
+                to explore the world of chess.
+              </p>
+              <p style={{ fontSize: "1.5rem", lineHeight: "1.8" }}>
+                Plus, connect with like-minded chess enthusiasts in a vibrant
+                and supportive community that shares your passion for the game.
+              </p>
+
+              {/* Button */}
+              <div className="mt-4">
+                <button
+                  className="btn btn-primary fw-bold rounded-4"
+                  onClick={handleShow}
+                  style={{
+                    fontSize: "1.2rem",
+                    padding: "0.8rem 2rem",
+                  }}
+                >
+                  Book A Demo
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
       {/* Modal */}
       {showModal && (
         <div
