@@ -2,11 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Nunito", sans-serif;
+  font-family: "Arial", sans-serif;
   text-decoration: none;
   outline: none;
   border: none;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   transition: all 0.2s linear;
 }
 *::selection {
@@ -27,6 +27,7 @@ body {
   width: 100%;
   overflow-x: hidden;
   background: #fff;
+  scroll-behavior: smooth;
   /* background: #001524; */
 }
 .bold-header {
@@ -41,13 +42,17 @@ section {
   margin-bottom: 3rem;
 }
 
-section > div > div > h1,
+div.icon.text-primary.me-5.mb-5 {
+  color: #ffcc00 !important;
+}
+
+/* section > div > div > h1,
 p,
 button,
 #about,
 section div h1.text-light.text-center.fw-bold {
   font-family: "Bodoni", serif;
-}
+} */
 
 a.text-decoration-none.text-dark:hover {
   color: #ffcc00 !important;
@@ -70,17 +75,17 @@ a.text-decoration-none.text-dark:hover {
   width: 100%;
   font-size: 1rem;
   padding: 0.5rem 0;
-  box-shadow: none; /* Removes default input shadow */
+  box-shadow: none; 
   transition: border-color 0.3s ease;
 }
 
 .floating-input:focus {
-  border-bottom: 2px solid #007bff; /* Focus effect on bottom border */
+  border-bottom: 2px solid #007bff; 
 }
 
 .floating-input:focus-visible,
 .floating-input:focus:not(:focus-visible) {
-  outline: none; /* Ensures no outer focus ring */
+  outline: none; 
 }
 .form-control {
   border: none;
@@ -93,7 +98,7 @@ a.text-decoration-none.text-dark:hover {
 
 .form-control:focus {
   background: transparent;
-  border-bottom: 1px solid #007bff; /* Highlight color */
+  border-bottom: 1px solid #007bff;
   outline: none;
   box-shadow: none;
 }
@@ -173,7 +178,7 @@ button {
     padding: 1rem 2rem;
   }
 
-  li {
+  #header li {
     display: block;
     text-align: center;
     margin: 1.5rem 0;

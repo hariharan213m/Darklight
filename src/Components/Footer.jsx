@@ -22,7 +22,11 @@ const Footer = () => {
       >
         {/* Column 1: Logo and Description */}
         <div style={{ flex: "1", minWidth: "250px", marginBottom: "20px" }}>
-          <h2 style={{ fontSize: "24px", color: "#f2a900",fontWeight:'bolder' }}>DarkLight</h2>
+          <h2
+            style={{ fontSize: "24px", color: "#f2a900", fontWeight: "bolder" }}
+          >
+            DarkLight
+          </h2>
           <p>
             Join the ultimate chess community. Play, learn, and compete with
             players worldwide!

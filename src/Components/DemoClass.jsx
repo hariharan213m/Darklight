@@ -1,6 +1,5 @@
 import React from "react";
 import courseImg from "../assets/6592321.jpg";
-import { FaUser, FaUsers, FaChild } from "react-icons/fa";
 import { useState } from "react";
 const DemoClass = () => {
   const [showModal, setShowModal] = useState(false);
@@ -67,112 +66,47 @@ const DemoClass = () => {
         padding: "4% 9%",
       }}
     >
-      <div
-        className="row align-items-center p-5 rounded-5"
-        // style={{ backgroundColor: "rgb(253, 218, 13,0.2)" }}
-      >
+      <div className="row align-items-center">
         <div className="col-md-6 d-flex flex-column align-items-center pe-5">
-          <h1 className="fw-bold display-3 text-center">Courses</h1>
-          <p style={{ fontSize: "1.5rem" }}>
+          <img
+            src={courseImg}
+            alt="About Us"
+            className="img-fluid rounded-5"
+            loading="lazy"
+            style={{
+              maxWidth: "80%",
+              height: "auto",
+              borderRadius: "5px",
+            }}
+          />
+        </div>
+        <div className="col-md-6 d-flex flex-column align-items-center text-center pe-5">
+          <h1 className="fw-bold display-2 text-center my-4">Courses</h1>
+          <p
+            className="my-5"
+            style={{ fontSize: "1.8rem", lineHeight: "30px" }}
+          >
             Book a free demo to get know about our Darklight coaching and to
             asses levels in chess, whether your a beginner, intermediate or
             advanced player in chess, our coaches has plans to teach you, Ready
             for a adventure of Chess ? Join our free demo, To Explore the world
             of chess.
           </p>
-
-          <img
-            src={courseImg}
-            alt="About Us"
-            className="img-fluid rounded-5"
-            style={{
-              maxWidth: "70%",
-              height: "auto",
-              borderRadius: "5px",
-            }}
-          />
-        </div>
-
-        <div className="col-md-6 d-flex flex-column align-items-center">
-          <h1 className="text-dark fw-bolder display-4 mb-4">Online Classes</h1>
-          <div className="row text-center">
-            {/* Card 1 */}
-            <div className="col-12 col-sm-6 col-lg-6 mb-4">
-              <div
-                className="p-4 rounded-5 card-hover"
-                style={{
-                  background: "rgb(224, 17, 95,0.1)",
-                }}
-              >
-                <FaUser size={30} color="#000" />
-                <h1 className="text-dark fw-bolder">Individual Class</h1>
-                <p className="text-dark" style={{ fontSize: "1.3rem" }}>
-                  If you’re a individual who is interested and willing to learn
-                  chess and explore into the field of chess, you should check
-                  this out to learn chess, we will analyse and assess you in
-                  every possible ways to improve your skills, we promise you
-                  that we will show progress in your chess career.
-                </p>
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="col-12 col-sm-6  mb-4">
-              <div
-                className="p-4 rounded-5  card-hover"
-                style={{
-                  background: "rgb(0, 150, 255,0.1)",
-                }}
-              >
-                <FaUsers size={30} color="#000" />
-
-                <h1 className="text-dark fw-bolder">Group Class</h1>
-                <p className="text-dark" style={{ fontSize: "1.3rem" }}>
-                  Darklight offers Group Classes for students, Group Classes has
-                  been fun learning because you can learn from your chess mates
-                  who are joining to learn, you can improve your skills with a
-                  group of students like you, and compared to individual
-                  classes, group classes are affordable so that you can learn
-                  chess.
-                </p>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="col-12  mb-4">
-              <div
-                className="p-4 rounded-5  card-hover"
-                style={{
-                  background: "rgb(9, 121, 105,0.1)",
-                }}
-              >
-                <FaChild size={30} color="#000" />
-
-                <h1 className="text-dark fw-bolder">Sibling Class</h1>
-                <p className="text-dark" style={{ fontSize: "1.3rem" }}>
-                  In this category, we encourage siblings to learn chess
-                  together so that you can develop your skills altogether your
-                  are benefited with skills and sibling classes has discounts,
-                  you can collaborate with your sibling or your cousin, you can
-                  explore more about the world of chess with your sibling so
-                  called partner in crime.
-                </p>
-              </div>
-            </div>
-
-            <div className="mb-4">
-              <button
-                className="btn btn-primary rounded-pill text-dark fw-bold border-0"
-                onClick={handleShow}
-                style={{
-                  padding: "1rem 1.5rem",
-                  background: "rgb(255, 49, 49)",
-                  fontSize: "1.2rem",
-                }}
-              >
-                Book A Demo
-              </button>
-            </div>
+          <p style={{ fontSize: "1.8rem", lineHeight: "30px" }}>
+            Plus, connect with like-minded chess enthusiasts in a vibrant and
+            supportive community that shares your passion for the game.
+          </p>
+          <div className="my-5">
+            <button
+              className="btn btn-primary d-inline-block text-light me-2 fw-bold rounded-4"
+              onClick={handleShow}
+              style={{
+                fontSize: "1.5rem",
+                padding: "1rem 2.5rem",
+              }}
+            >
+              Book A Demo
+            </button>
           </div>
         </div>
       </div>

@@ -3,7 +3,13 @@ import homeImage from "../assets/10124522.jpg";
 import Progress from "./Progress";
 import DemoClass from "./DemoClass";
 import { Link } from "react-router-dom";
+import { FaChild } from "react-icons/fa";
 
+import WhyChooseUs from "./WhyChooseUs";
+import { FaUserTie } from "react-icons/fa";
+import { FaChessKing } from "react-icons/fa6";
+import { FaChess } from "react-icons/fa";
+import kidChess from "../assets/kid.jpg";
 
 const Home = () => {
   return (
@@ -14,7 +20,7 @@ const Home = () => {
           backgroundColor: "#fff",
         }}
       >
-        <div className="row align-items-center">
+        <div className="row align-items-center" style={{ paddingTop: "6rem" }}>
           <div className="col-12 col-md-6 text-center text-md-start ps-md-5">
             <h1
               className="bold-header fw-bolder text-dark"
@@ -39,8 +45,8 @@ const Home = () => {
               >
                 Get Started
               </Link>
-              <button
-                type="button"
+              <Link
+                to="about"
                 className="btn btn-outline-dark ms-3 fw-bold rounded-4"
                 style={{
                   fontSize: "1.5rem",
@@ -48,7 +54,7 @@ const Home = () => {
                 }}
               >
                 Learn More
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -56,81 +62,83 @@ const Home = () => {
             <img
               src={homeImage}
               alt="home-image"
-              className="img-fluid" // Makes image responsive
+              className="img-fluid"
               style={{
                 maxWidth: "100%",
-                height: "auto", // Ensures the image maintains its aspect ratio
+                height: "auto",
               }}
+              loading="lazy"
             />
           </div>
         </div>
       </section>
       <DemoClass />
-      <Progress />
-
-      <section>
-        <div
-          className="pt-5 container"
-          style={{ fontFamily: '"Bodoni", serif' }}
-        >
-          <h1
-            className="text-dark fw-bolder text-center display-3"
-            style={{ fontFamily: '"Bodoni", serif' }}
-          >
-            Why Dark Light
-          </h1>
-          <p
-            className="text-dark text-center mt-3"
-            style={{ fontSize: "1.5rem", letterSpacing: 1.2 }}
-          >
-            We make your children learn chess with engaging activities
-            throughout the classes, They don’t learn only chess but also we
-            encourage their curiosity with learning and fun, They learn moral
-            values other than chess Are you looking for learning chess online,
-            Join dark light chess academy where we encourage children and making
-            learning chess a fun
+      <section
+        className=" align-content-center"
+        style={{
+          fontFamily: '"Bodoni", serif',
+          padding: "4% 9%",
+        }}
+      >
+        <div className="container text-center pb-5">
+          <h2 className="fw-bold display-4 text-primary">
+            <FaChild className="me-2" /> Child Centric
+          </h2>
+          <p className="lead text-muted" style={{ fontSize: "1.5rem" }}>
+            We prioritize your child’s development and engagement through
+            structured chess activities.
           </p>
         </div>
 
-        <div className="container py-5">
-          <div className="row">
-            <div
-              className="col-md-6 text-center mb-4 mb-md-0"
-              style={{ fontFamily: '"Bodoni", serif' }}
-            >
-              <h1
-                className="text-dark fw-bolder display-4"
-                style={{ fontFamily: '"Bodoni", serif' }}
-              >
-                Vision
-              </h1>
-              <p
-                className="text-dark mt-3"
-                style={{ fontSize: "1.5rem", letterSpacing: 1.2 }}
-              >
-                Our vision is to make each student a chess master and empower
-                professional chess talent to coach students.
-              </p>
+        <div className="container row align-items-center ">
+          <div className="col-md-6">
+            <div className=" mb-5">
+              <div className=" text-center">
+                <FaUserTie className="text-primary display-3 mb-3" />
+                <h3 className="fw-bold">Trained & Experienced Staff</h3>
+                <p className="text-muted" style={{ fontSize: "1.5rem" }}>
+                  Our coaches are certified professionals dedicated to your
+                  child's growth.
+                </p>
+              </div>
             </div>
-            <div className="col-md-6 text-center">
-              <h1
-                className="text-dark fw-bolder display-4"
-                style={{ fontFamily: '"Bodoni", serif' }}
-              >
-                Mission
-              </h1>
-              <p
-                className="text-dark mt-3"
-                style={{ fontSize: "1.5rem", letterSpacing: 1.2 }}
-              >
-                Our mission is to create a virtual place where people from all
-                over the world can learn chess.
-              </p>
+
+            <div className=" mb-5">
+              <div className=" text-center">
+                <FaChessKing className="text-primary display-3 mb-3" />
+                <h3 className="fw-bold">Engaging Playful Activity</h3>
+                <p className="text-muted" style={{ fontSize: "1.5rem" }}>
+                  Interactive sessions to keep children excited and curious
+                  about chess.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <div className="text-center">
+                <FaChess className="text-primary display-3 mb-3" />
+                <h3 className="fw-bold">Child Friendly</h3>
+                <p className="text-muted" style={{ fontSize: "1.5rem" }}>
+                  A safe, fun environment tailored for young learners.
+                </p>
+              </div>
             </div>
           </div>
+          <div className="col-md-6 d-flex justify-content-center">
+            <img
+              src={kidChess}
+              loading="lazy"
+              alt="Child Centric"
+              className="img-fluid rounded-4"
+              style={{ maxWidth: "550px" }}
+            />
+          </div>
         </div>
-       
       </section>
+
+      <Progress />
+
+      <WhyChooseUs />
     </>
   );
 };

@@ -4,46 +4,74 @@ import Header from "./Components/Header";
 import Home from "./Components/Home";
 import Gallery from "./Components/Gallery";
 import Footer from "./Components/Footer";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes, Navigate, useLocation } from "react-router-dom";
 import "./app.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import Levels from "./Components/Levels";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Events from "./Components/Events";
 
 export function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    // Retrieve authentication state from localStorage
+    () => JSON.parse(localStorage.getItem("isAuthenticated")) || false
+  );
+
+  const location = useLocation();
 
   const loginHandler = () => {
-    setIsAuthenticated(true); // Update the state when the user logs in
+    setIsAuthenticated(true);
+    localStorage.setItem("isAuthenticated", true); // Persist state in localStorage
   };
+
+  const logoutHandler = () => {
+    setIsAuthenticated(false);
+    localStorage.removeItem("isAuthenticated"); // Clear state from localStorage
+  };
+
+  // Determine if Header and Footer should be shown
+  const shouldShowHeaderFooter = !["/login", "/register"].includes(
+    location.pathname
+  );
+
+  useEffect(() => {
+    // Ensure the authentication state is synced with localStorage on refresh
+    const authState = JSON.parse(localStorage.getItem("isAuthenticated"));
+    if (authState) {
+      setIsAuthenticated(authState);
+    }
+  }, []);
 
   return (
     <div>
-      {isAuthenticated && <Header />}
+      {/* Show Header only if not on Login or Register */}
+      {shouldShowHeaderFooter && <Header onLogout={logoutHandler} />}
+
       <Routes>
-        {/* If not authenticated, redirect to the login page */}
-        {!isAuthenticated ? (
+        {/* Public Routes */}
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login onLogin={loginHandler} />} />
+        <Route path="/register" element={<Register />} />
+
+        {/* Protected Routes */}
+        {isAuthenticated ? (
           <>
-            <Route path="/login" element={<Login onLogin={loginHandler} />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="*" element={<Navigate to="/login" />} />
+            <Route path="/courses" element={<Courses />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/courses/:id" element={<Levels />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/about" element={<About />} />
           </>
         ) : (
-          <>
-            <Route path="/" element={<Home />} />
-            <Route path="courses" element={<Courses />} />
-            <Route path="events" element={<Events />} />
-            <Route path="/courses/:id" element={<Levels />} />
-            <Route path="gallery" element={<Gallery />} />
-            <Route path="about" element={<About />} />
-          </>
+          <Route path="*" element={<Navigate to="/login" replace />} />
         )}
       </Routes>
-      {isAuthenticated && <Footer />}
+
+      {/* Show Footer only if not on Login or Register */}
+      {shouldShowHeaderFooter && <Footer />}
     </div>
   );
 }
