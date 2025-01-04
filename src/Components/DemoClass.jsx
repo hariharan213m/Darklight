@@ -38,7 +38,7 @@ const DemoClass = () => {
 
     // Construct WhatsApp message
     const whatsappMessage = `Name: ${formData.name}\nContact No: ${contactNo}\nMode: ${mode}\nLevel: ${level}\nLocation: ${location}`;
-    const phoneNumber = "918124482421"; // Use the international format without spaces or special characters
+    const phoneNumber = "918300155259"; // Use the international format without spaces or special characters
     const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       whatsappMessage
     )}`;

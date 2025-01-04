@@ -40,7 +40,7 @@ const Courses = () => {
 
     // Construct WhatsApp message
     const whatsappMessage = `Name: ${name}\nContact No: ${contactNo}\nMode: ${mode}\nLevel: ${level}\nLocation: ${location}`;
-    const phoneNumber = "918124482421"; // Use the international format without spaces or special characters
+    const phoneNumber = "918300155259"; // Use the international format without spaces or special characters
     const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       whatsappMessage
     )}`;
@@ -109,7 +109,7 @@ const Courses = () => {
                   borderRadius: "20px",
                   background:
                     "linear-gradient(to bottom right, #ffffff, #dfe9f3)",
-                    boxShadow: "0 4px 12px rgba(0, 123, 255, 0.5)", 
+                  boxShadow: "0 4px 12px rgba(0, 123, 255, 0.5)",
                 }}
               >
                 <img
@@ -163,7 +163,7 @@ const Courses = () => {
                   borderRadius: "20px",
                   background:
                     "linear-gradient(to bottom right, #ffffff, #e3f2fd)",
-                 boxShadow: "0 4px 12px rgba(0, 128, 0, 0.5)"
+                  boxShadow: "0 4px 12px rgba(0, 128, 0, 0.5)",
                 }}
               >
                 <img
@@ -432,7 +432,7 @@ const Courses = () => {
                   overflow: "hidden", // Ensures the card's rounded corners work on all elements
                   transition:
                     "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
-                    boxShadow: "0 4px 12px rgba(128, 0, 128, 0.5)",
+                  boxShadow: "0 4px 12px rgba(128, 0, 128, 0.5)",
                 }}
                 // Adding a hover effect
                 onMouseEnter={(e) =>
@@ -501,7 +501,7 @@ const Courses = () => {
                   overflow: "hidden",
                   transition:
                     "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
-                    boxShadow: "0 4px 12px rgba(0, 123, 255, 0.5)",
+                  boxShadow: "0 4px 12px rgba(0, 123, 255, 0.5)",
                 }}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.transform = "scale(1.05)")
@@ -569,7 +569,7 @@ const Courses = () => {
                   overflow: "hidden",
                   transition:
                     "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
-                  boxShadow: "0 4px 12px rgba(0, 128, 0, 0.5)"
+                  boxShadow: "0 4px 12px rgba(0, 128, 0, 0.5)",
                 }}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.transform = "scale(1.05)")

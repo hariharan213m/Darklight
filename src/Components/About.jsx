@@ -31,7 +31,7 @@ const About = () => {
     }
 
     const whatsappMessage = `Name: ${formData.name}\nContact No: ${contactNo}\nMode: ${mode}\nLevel: ${level}\nLocation: ${location}`;
-    const phoneNumber = "918124482421";
+    const phoneNumber = "918300155259";
     const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       whatsappMessage
     )}`;
