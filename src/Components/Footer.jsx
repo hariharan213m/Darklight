@@ -3,11 +3,12 @@ import React from "react";
 const Footer = () => {
   return (
     <div
+    id="footer"
       style={{
         background: "#001524",
         color: "#fff",
         padding: "20px 0",
-        textAlign: "center",
+ 
       }}
     >
       <div

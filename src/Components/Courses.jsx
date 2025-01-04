@@ -1,10 +1,10 @@
 import React from "react";
 import onlineClass from "../assets/rb_6428.png";
-import playBots from "../assets/19198019.jpg";
+
 import offlineClass from "../assets/5385181.jpg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { FaUser, FaUsers, FaChild, FaChess } from "react-icons/fa";
+import { FaUser, FaChild, FaChess } from "react-icons/fa";
 
 const Courses = () => {
   const [showModal, setShowModal] = useState(false);
@@ -100,15 +100,16 @@ const Courses = () => {
           {/* Cards */}
           <div className="row justify-content-evenly">
             {/* Online Class Card */}
-            <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center">
+            <div className="col-12 col-sm-6 col-md-5 col-lg-5 mb-4 d-flex justify-content-center">
               <div
-                className="card shadow-lg border-0"
+                className="card border-0"
                 style={{
                   width: "100%",
-                  maxWidth: "370px",
+                  maxWidth: "400px",
                   borderRadius: "20px",
                   background:
                     "linear-gradient(to bottom right, #ffffff, #dfe9f3)",
+                    boxShadow: "0 4px 12px rgba(0, 123, 255, 0.5)", 
                 }}
               >
                 <img
@@ -153,15 +154,16 @@ const Courses = () => {
             </div>
 
             {/* Offline Class Card */}
-            <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center">
+            <div className="col-12 col-sm-6 col-md-5 col-lg-5 mb-4 d-flex justify-content-center">
               <div
-                className="card shadow-lg border-0"
+                className="card border-0"
                 style={{
                   width: "100%",
-                  maxWidth: "370px",
+                  maxWidth: "400px",
                   borderRadius: "20px",
                   background:
                     "linear-gradient(to bottom right, #ffffff, #e3f2fd)",
+                 boxShadow: "0 4px 12px rgba(0, 128, 0, 0.5)"
                 }}
               >
                 <img
@@ -201,49 +203,6 @@ const Courses = () => {
                   >
                     Book Now
                   </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Upcoming Events Card */}
-            <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center">
-              <div
-                className="card shadow-lg border-0"
-                style={{
-                  width: "100%",
-                  maxWidth: "370px",
-                  borderRadius: "20px",
-                  background:
-                    "linear-gradient(to bottom right, #ffffff, #fbeaff)",
-                }}
-              >
-                <img
-                  src={playBots}
-                  loading="lazy"
-                  className="card-img-top"
-                  alt="Play bots"
-                  style={{
-                    height: "300px",
-                    borderTopLeftRadius: "20px",
-                    borderTopRightRadius: "20px",
-                    objectFit: "cover",
-                  }}
-                />
-                <div className="card-body text-center">
-                  <h5
-                    className="card-title fw-bolder"
-                    style={{ color: "#8424d9", fontSize: "2.5rem" }}
-                  >
-                    Upcoming Events
-                  </h5>
-                  <p
-                    className="card-text text-secondary"
-                    style={{ fontSize: "1.5rem" }}
-                  >
-                    Stay updated with the latest chess tournaments, workshops,
-                    and training camps. Register now to enhance your skills and
-                    compete with the best!
-                  </p>
                 </div>
               </div>
             </div>
@@ -463,7 +422,7 @@ const Courses = () => {
             {/* Online Class Card */}
             <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center">
               <div
-                className="card shadow-lg border-0"
+                className="card border-0"
                 style={{
                   width: "100%",
                   maxWidth: "370px",
@@ -473,7 +432,7 @@ const Courses = () => {
                   overflow: "hidden", // Ensures the card's rounded corners work on all elements
                   transition:
                     "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
-                  boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.1)", // More pronounced shadow
+                    boxShadow: "0 4px 12px rgba(128, 0, 128, 0.5)",
                 }}
                 // Adding a hover effect
                 onMouseEnter={(e) =>
@@ -492,7 +451,7 @@ const Courses = () => {
                     height: "60px",
                     borderRadius: "50%",
                     marginTop: "-30px", // To position the icon above the card
-                    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "0 4px 12px rgba(128, 0, 128, 0.5)",
                   }}
                 >
                   <FaUser size={30} color="#ffffff" />
@@ -532,7 +491,7 @@ const Courses = () => {
             {/* Offline Class Card */}
             <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center">
               <div
-                className="card shadow-lg border-0"
+                className="card border-0"
                 style={{
                   width: "100%",
                   maxWidth: "370px",
@@ -542,7 +501,7 @@ const Courses = () => {
                   overflow: "hidden",
                   transition:
                     "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
-                  boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.1)", // More pronounced shadow
+                    boxShadow: "0 4px 12px rgba(0, 123, 255, 0.5)",
                 }}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.transform = "scale(1.05)")
@@ -560,7 +519,7 @@ const Courses = () => {
                     height: "60px",
                     borderRadius: "50%",
                     marginTop: "-30px",
-                    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "0 4px 12px rgba(0, 123, 255, 0.5)",
                   }}
                 >
                   <FaUser size={30} color="#ffffff" />
@@ -600,7 +559,7 @@ const Courses = () => {
 
             <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center">
               <div
-                className="card shadow-lg border-0"
+                className="card border-0"
                 style={{
                   width: "100%",
                   maxWidth: "370px",
@@ -610,7 +569,7 @@ const Courses = () => {
                   overflow: "hidden",
                   transition:
                     "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
-                  boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.1)",
+                  boxShadow: "0 4px 12px rgba(0, 128, 0, 0.5)"
                 }}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.transform = "scale(1.05)")
@@ -628,7 +587,7 @@ const Courses = () => {
                     height: "60px",
                     borderRadius: "50%",
                     marginTop: "-30px",
-                    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "0 4px 12px rgba(0, 255, 0, 0.5)",
                   }}
                 >
                   <FaUser size={30} color="#ffffff" />

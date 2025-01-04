@@ -113,7 +113,7 @@ const DemoClass = () => {
               </p>
 
               {/* Button */}
-              <div className="mt-4">
+              <div className="mt-4 text-center">
                 <button
                   className="btn btn-primary fw-bold rounded-4"
                   onClick={handleShow}

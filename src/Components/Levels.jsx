@@ -55,7 +55,7 @@ const Levels = () => {
 
   return (
     <section
-      className="container-fluid my-5"
+      className="container-fluid"
       style={{
         background: "#001524",
       }}

@@ -1,59 +1,52 @@
 import React from "react";
-import tournament from "../assets/Tabs.jpg";
+import playBots from "../assets/19198019.jpg";
 
 const Events = () => {
   return (
     <div
-      style={{
-        width: "100%",
-        height: "auto",
-        backgroundColor: "#fff",
-        zIndex: 1,
-        padding: "4% 9%",
-      }}
+      className="container align-content-center"
+      style={{ minHeight: "100vh" }}
     >
-      <div className="row align-items-center">
-        <div className="col-md-6">
-          {" "}
-          <img
-            src={tournament}
-            loading="lazy"
-            alt="About Us"
-            className="img-fluid rounded"
+      <div className="row justify-content-center">
+        <div className="col-12 col-sm-6 col-md-4 col-lg-6 mb-4 d-flex justify-content-center">
+          <div
+            className="card shadow-lg border-0"
             style={{
-              maxWidth: "100%",
-              height: "auto",
-              borderRadius: "5px",
+              width: "100%",
+              maxWidth: "900px",
+              borderRadius: "20px",
+              background: "linear-gradient(to bottom right, #ffffff, #fbeaff)",
             }}
-          />
-        </div>
-        <div className="col-md-6" style={{ fontSize: "1.5rem" }}>
-          <h1 className="fw-bolder pb-md-3 text-center display-2">
-            Dark<span style={{ color: "red" }}>Light</span> Tournaments
-          </h1>
-          <p className="pb-md-3">
-            Personally we believe in improving students skill through our Fellow
-            academy tournaments to encourage them to learn from their flaws, we
-            also conduct tournaments online.
-          </p>
-          <p className="pb-md-3">
-            During the starting stages of Darklight, we were teaching our
-            friends to win against their opponent and some their siblings and it
-            was fun doing that but as days went we started coaching students
-            from our home, to make chess accessible for all in a professional I
-            started Darklight, this was a motivating factor to Develop a
-            academy.
-          </p>
-          <p className="pb-md-3 ">
-            Darklight welcomes students who are willing to master chess and also
-            loves to teach every bit of learning in chess,{" "}
-            <span className="fw-bolder" style={{ color: "red" }}>
-              BECAUSE EVERY MOVE MATTERS
-            </span>
-          </p>
-          <p className="pb-md-3 ">
-            We strongly believe that age is not a criteria to learn chess.
-          </p>
+          >
+            <img
+              src={playBots}
+              loading="lazy"
+              className="card-img-top"
+              alt="Play bots"
+              style={{
+                height: "300px",
+                borderTopLeftRadius: "20px",
+                borderTopRightRadius: "20px",
+                objectFit: "cover",
+              }}
+            />
+            <div className="card-body text-center">
+              <h5
+                className="card-title fw-bolder"
+                style={{ color: "#8424d9", fontSize: "2.5rem" }}
+              >
+                Upcoming Events
+              </h5>
+              <p
+                className="card-text text-secondary"
+                style={{ fontSize: "1.5rem" }}
+              >
+                Stay updated with the latest chess tournaments, workshops, and
+                training camps. Register now to enhance your skills and compete
+                with the best!
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

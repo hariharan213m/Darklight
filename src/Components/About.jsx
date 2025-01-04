@@ -57,6 +57,49 @@ const About = () => {
       }}
     >
       <div
+        className="container "
+        style={{
+          width: "100%",
+          height: "auto",
+          backgroundColor: "#fff",
+          zIndex: 1,
+        }}
+      >
+        <div className="row justify-content-center">
+          <div className=" p-4 " style={{ lineHeight: "1.8" }}>
+            <h1
+              className="text-center mb-4 display-2 fw-bold"
+              style={{ color: "red" }}
+            >
+              Welcome to Darklight Chess!
+            </h1>
+            <p className="lead text-dark " style={{ fontSize: "1.5rem" }}>
+              At Darklight Chess Academy, located in Tamil Nadu, we offer
+              professional chess coaching for players of all levels. Whether
+              you're a beginner, intermediate, advanced, or even a master, our
+              expert coaches are here to help you improve and elevate your game.
+            </p>
+            <p className="text-dark" style={{ fontSize: "1.5rem" }}>
+              Currently, we have thriving coaching centers in{" "}
+              <strong>Kovilpatti</strong> and <strong>Thoothukudi</strong>, with
+              over 70 students already benefiting from our programs. We also
+              offer <strong>online chess coaching</strong> to make learning
+              accessible from anywhere. Whether you're at home or on the go,
+              mastering chess is just one step away! Book a{" "}
+              <strong>free demo session</strong> today and experience the
+              Darklight difference – at no cost!
+            </p>
+            <p className="text-dark" style={{ fontSize: "1.5rem" }}>
+              Our team of highly skilled coaches includes{" "}
+              <strong>Grandmasters</strong> and experienced chess professionals
+              who are dedicated to helping you excel. At Darklight, you have the
+              option to choose your own coach and work at your own pace.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
         className="container-fluid "
         style={{
           width: "100%",
@@ -67,13 +110,6 @@ const About = () => {
         }}
       >
         <div className="row ">
-          <div className="col-md-6 text-center align-content-center">
-            <p style={{ fontSize: "2rem", lineHeight: "1.8" }}>
-              Darklight Chess academy was a dream for me, and I started it with
-              an aim to empower chess coaches and explore the world of chess
-              with a motive to take chess to all the people across the globe.
-            </p>
-          </div>
           <div className="col-md-6 d-flex align-items-center justify-content-center">
             <div
               className="card shadow rounded-4"
@@ -106,12 +142,12 @@ const About = () => {
                   KARUPASAAMI
                 </h1>
                 {/* Subtitle */}
-                <h5
-                  className="text-danger mb-4"
-                  style={{ letterSpacing: "1px" }}
+                <h4
+                  className=" mb-4 fw-bold"
+                  style={{ letterSpacing: ".5px", color: "green" }}
                 >
                   CO-Founder Of Darklight
-                </h5>
+                </h4>
                 {/* Quote */}
                 <p
                   style={{
@@ -128,51 +164,16 @@ const About = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div
-        className="container "
-        style={{
-          width: "100%",
-          height: "auto",
-          backgroundColor: "#fff",
-          zIndex: 1,
-        }}
-      >
-        <div className="row justify-content-center">
-          <div className=" p-4 " style={{ lineHeight: "1.8" }}>
-            <h1
-              className="text-center text-dark mb-4 display-2 fw-bold"
-              style={{}}
-            >
-              Welcome to Darklight Chess!
-            </h1>
-            <p className="lead text-dark " style={{ fontSize: "1.5rem" }}>
-              At Darklight Chess Academy, located in Tamil Nadu, we offer
-              professional chess coaching for players of all levels. Whether
-              you're a beginner, intermediate, advanced, or even a master, our
-              expert coaches are here to help you improve and elevate your game.
-            </p>
-            <p className="text-dark" style={{ fontSize: "1.5rem" }}>
-              Currently, we have thriving coaching centers in{" "}
-              <strong>Kovilpatti</strong> and <strong>Thoothukudi</strong>, with
-              over 70 students already benefiting from our programs. We also
-              offer <strong>online chess coaching</strong> to make learning
-              accessible from anywhere. Whether you're at home or on the go,
-              mastering chess is just one step away! Book a{" "}
-              <strong>free demo session</strong> today and experience the
-              Darklight difference – at no cost!
-            </p>
-            <p className="text-dark" style={{ fontSize: "1.5rem" }}>
-              Our team of highly skilled coaches includes{" "}
-              <strong>Grandmasters</strong> and experienced chess professionals
-              who are dedicated to helping you excel. At Darklight, you have the
-              option to choose your own coach and work at your own pace.
+          <div className="col-md-6 text-center align-content-center">
+            <p style={{ fontSize: "1.5rem", lineHeight: "1.8" }}>
+              Darklight Chess academy was a dream for me, and I started it with
+              an aim to empower chess coaches and explore the world of chess
+              with a motive to take chess to all the people across the globe.
             </p>
           </div>
         </div>
       </div>
+
       <div
         style={{
           backgroundColor: "#f8f9fa",
@@ -187,7 +188,7 @@ const About = () => {
                 className="display-2"
                 style={{
                   fontWeight: "bold",
-                  color: "#2c3e50",
+                  color: "red",
                 }}
               >
                 What Keeps Us Moving
@@ -237,7 +238,7 @@ const About = () => {
         </div>
       </div>
 
-      <section className=" container py-5 border shadow">
+      <section className="container my-5 border shadow">
         <div className="container">
           <h1
             className="fw-bold display-2 text-center"

@@ -153,6 +153,9 @@ button {
   button {
     font-size: 0.875rem;
   }
+  #footer{
+
+  }
 }
 
 @media (max-width: 991px) {
@@ -169,6 +172,12 @@ button {
 
   #header {
     padding: 2rem 4%;
+  }
+}
+
+@media (min-width: 768px) {
+  #footer {
+    text-align: center; /* Center text on larger screens */
   }
 }
 

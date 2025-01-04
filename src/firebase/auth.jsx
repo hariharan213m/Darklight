@@ -10,11 +10,17 @@ import {
   GoogleAuthProvider,
   signOut,
 } from "firebase/auth";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
 
 // Initialize Firestore
 const db = getFirestore();
 
+/**
+ * Create a new user with email and password
+ * @param {string} email
+ * @param {string} password
+ * @returns {Promise<Object>} UserCredential
+ */
 export const doCreateUserWithEmailAndPassword = async (email, password) => {
   try {
     const userCredential = await createUserWithEmailAndPassword(
@@ -24,13 +30,17 @@ export const doCreateUserWithEmailAndPassword = async (email, password) => {
     );
     const user = userCredential.user;
 
-    // Add user to Firestore
+    // Check if the user already exists in Firestore
     const userRef = doc(db, "users", user.uid);
-    await setDoc(userRef, {
-      uid: user.uid,
-      email: user.email,
-      createdAt: new Date(),
-    });
+    const userSnap = await getDoc(userRef);
+    if (!userSnap.exists()) {
+      // Add user to Firestore if not already present
+      await setDoc(userRef, {
+        uid: user.uid,
+        email: user.email,
+        createdAt: new Date(),
+      });
+    }
 
     return userCredential;
   } catch (error) {
@@ -39,6 +49,12 @@ export const doCreateUserWithEmailAndPassword = async (email, password) => {
   }
 };
 
+/**
+ * Sign in a user with email and password
+ * @param {string} email
+ * @param {string} password
+ * @returns {Promise<Object>} UserCredential
+ */
 export const doSignInWithEmailAndPassword = async (email, password) => {
   try {
     const userCredential = await signInWithEmailAndPassword(
@@ -53,21 +69,29 @@ export const doSignInWithEmailAndPassword = async (email, password) => {
   }
 };
 
+/**
+ * Sign in a user with Google
+ * @returns {Promise<Object>} User
+ */
 export const doSignInWithGoogle = async () => {
   try {
     const provider = new GoogleAuthProvider();
     const result = await signInWithPopup(auth, provider);
     const user = result.user;
 
-    // Add user to Firestore
+    // Add or update user in Firestore
     const userRef = doc(db, "users", user.uid);
-    await setDoc(userRef, {
-      uid: user.uid,
-      displayName: user.displayName,
-      email: user.email,
-      photoURL: user.photoURL,
-      createdAt: new Date(),
-    });
+    await setDoc(
+      userRef,
+      {
+        uid: user.uid,
+        displayName: user.displayName,
+        email: user.email,
+        photoURL: user.photoURL,
+        lastLogin: new Date(),
+      },
+      { merge: true }
+    ); // Merge to avoid overwriting existing data
 
     return user;
   } catch (error) {
@@ -76,6 +100,9 @@ export const doSignInWithGoogle = async () => {
   }
 };
 
+/**
+ * Sign out the current user
+ */
 export const doSignOut = async () => {
   try {
     await signOut(auth);
@@ -85,6 +112,10 @@ export const doSignOut = async () => {
   }
 };
 
+/**
+ * Send a password reset email
+ * @param {string} email
+ */
 export const doPasswordReset = async (email) => {
   try {
     await sendPasswordResetEmail(auth, email);
@@ -98,6 +129,10 @@ export const doPasswordReset = async (email) => {
   }
 };
 
+/**
+ * Change the password of the current user
+ * @param {string} password
+ */
 export const doPasswordChange = async (password) => {
   try {
     if (auth.currentUser) {
@@ -111,11 +146,14 @@ export const doPasswordChange = async (password) => {
   }
 };
 
+/**
+ * Send an email verification to the current user
+ */
 export const doSendEmailVerification = async () => {
   try {
     if (auth.currentUser) {
       await sendEmailVerification(auth.currentUser, {
-        url: `${window.location.origin}/home`,
+        url: `${window.location.origin}/home`, // Redirect after email verification
       });
     } else {
       throw new Error("No user is currently signed in.");

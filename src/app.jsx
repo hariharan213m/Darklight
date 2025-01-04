@@ -13,15 +13,15 @@ import Login from "./Components/Login";
 import Register from "./Components/Register";
 import React, { useState, useEffect } from "react";
 import Events from "./Components/Events";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase/firebase"; // Import your Firebase auth instance
 
 export function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(
-    // Retrieve authentication state from localStorage
-    () => JSON.parse(localStorage.getItem("isAuthenticated")) || false
-  );
+  const [isAuthenticated, setIsAuthenticated] = useState(null); // Initially set to null
 
   const location = useLocation();
 
+  // This function will handle login when the button is clicked
   const loginHandler = () => {
     setIsAuthenticated(true);
     localStorage.setItem("isAuthenticated", true); // Persist state in localStorage
@@ -32,18 +32,38 @@ export function App() {
     localStorage.removeItem("isAuthenticated"); // Clear state from localStorage
   };
 
-  // Determine if Header and Footer should be shown
+  // Sync Firebase auth state with localStorage and check login status
+  useEffect(() => {
+    // Listen to auth state change and set isAuthenticated accordingly
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsAuthenticated(true);
+      } else {
+        setIsAuthenticated(false);
+      }
+    });
+
+    // Check localStorage for persisted authentication state
+    const persistedAuthState = JSON.parse(
+      localStorage.getItem("isAuthenticated")
+    );
+    if (persistedAuthState !== null) {
+      setIsAuthenticated(persistedAuthState);
+    }
+
+    // Cleanup listener when component unmounts
+    return () => unsubscribe();
+  }, []);
+
+  // Show Header and Footer only if not on Login or Register
   const shouldShowHeaderFooter = !["/login", "/register"].includes(
     location.pathname
   );
 
-  useEffect(() => {
-    // Ensure the authentication state is synced with localStorage on refresh
-    const authState = JSON.parse(localStorage.getItem("isAuthenticated"));
-    if (authState) {
-      setIsAuthenticated(authState);
-    }
-  }, []);
+  // If isAuthenticated is still null (checking state from Firebase or localStorage), show nothing
+  if (isAuthenticated === null) {
+    return null;
+  }
 
   return (
     <div>
@@ -66,6 +86,7 @@ export function App() {
             <Route path="/about" element={<About />} />
           </>
         ) : (
+          // Redirect to /login if not authenticated
           <Route path="*" element={<Navigate to="/login" replace />} />
         )}
       </Routes>
