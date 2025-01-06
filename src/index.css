@@ -6,7 +6,6 @@
   text-decoration: none;
   outline: none;
   border: none;
-  /* text-transform: capitalize; */
   transition: all 0.2s linear;
 }
 *::selection {
@@ -184,6 +183,9 @@ button {
 }
 
 @media (max-width: 768px) {
+  #logo-part {
+    padding: 0 !important;
+  }
   nav {
     position: absolute;
     left: 0;

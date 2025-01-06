@@ -5,13 +5,16 @@ import { Link, useNavigate } from "react-router-dom";
 import { doSignOut } from "../firebase/auth";
 import logo from "../assets/Darklight.png";
 import LazyLoad from "react-lazyload";
+import { getAuth, signOut } from "firebase/auth";
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState(false);
   const menuRef = useRef(null); // For tracking the menu
   const toggleRef = useRef(null); // For tracking the toggle button
+  const auth = getAuth();
+  const user = auth.currentUser;
 
-  const [userLoggedIn, setUserLoggedIn] = useState(false);
+  // const [userLoggedIn, setUserLoggedIn] = useState(false);
   const navigate = useNavigate();
 
   const toggleVisibility = () => {
@@ -19,13 +22,9 @@ const Header = () => {
   };
 
   const handleLogout = async () => {
-    try {
-      await doSignOut();
-      setUserLoggedIn(false); // Update state if needed
-      navigate("/login");
-    } catch (error) {
-      console.error("Logout failed:", error);
-    }
+    signOut(auth).then(() => {
+      console.log("User signed out.");
+    });
   };
 
   const handleClickOutside = (e) => {
@@ -64,8 +63,9 @@ const Header = () => {
       >
         {/* Logo Section */}
         <div
+          id="logo-part"
           style={{
-            paddingLeft: "9%",
+            padding: "6px 0 3px 9%",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -79,8 +79,8 @@ const Header = () => {
               src={logo}
               alt="Website Logo"
               style={{
-                width: "100px", // Default size
-                height: "40px",
+                width: "120px", // Default size
+                height: "50px",
               }}
             />
           </LazyLoad>
@@ -164,26 +164,29 @@ const Header = () => {
               </Link>
             </li>
           </ul>
-          <Link
-            id="login"
-            to="login"
-            className="btn btn-primary d-inline-block text-light ms-4 fw-bold rounded-4 mb-3 w-100 w-md-25"
-            style={{
-              fontSize: "1.5rem",
-              padding: ".4rem 1.5rem",
-            }}
-          >
-            Login
-          </Link>
-          {userLoggedIn && (
-            <button
-              onClick={handleLogout}
-              className="btn btn-danger fw-bold"
-              style={{ padding: ".5rem 1rem", fontSize: "1.5rem" }}
-            >
-              Logout
-            </button>
-          )}
+          <div className="header-buttons">
+            {!user ? (
+              <Link
+                id="login"
+                to="login"
+                className="btn btn-primary d-inline-block text-light ms-4 fw-bold rounded-4 mb-3 w-100 w-md-25"
+                style={{
+                  fontSize: "1.5rem",
+                  padding: ".4rem 1.5rem",
+                }}
+              >
+                Login
+              </Link>
+            ) : (
+              <button
+                onClick={handleLogout}
+                className="btn btn-danger d-inline-block text-light ms-4 fw-bold rounded-4 mb-3 w-100 w-md-25"
+                style={{ padding: ".4rem 1.5rem", fontSize: "1.5rem" }}
+              >
+                Logout
+              </button>
+            )}
+          </div>
         </nav>
       </div>
     </section>

@@ -167,18 +167,16 @@ const Home = () => {
             </div>
           </div>
           <div className="col-md-6 d-flex justify-content-center">
-            <LazyLoad height={200} offset={100}>
-              <img
-                src={kidChess}
-                loading="lazy"
-                alt="Child Centric"
-                className="img-fluid rounded-4"
-                style={{
-                  maxWidth: "100%",
-                  height: "auto",
-                }}
-              />
-            </LazyLoad>
+            <img
+              src={kidChess}
+              alt="Child Centric"
+              loading="lazy"
+              className="img-fluid rounded-4"
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+              }}
+            />
           </div>
         </div>
       </section>
@@ -194,19 +192,17 @@ const Home = () => {
       >
         <div className="row align-items-center">
           <div className="col-md-6">
-            <LazyLoad height={200} offset={100}>
-              <img
-                src={tournament}
-                loading="lazy"
-                alt="About Us"
-                className="img-fluid rounded"
-                style={{
-                  maxWidth: "100%",
-                  height: "auto",
-                  borderRadius: "5px",
-                }}
-              />
-            </LazyLoad>
+            <img
+              src={tournament}
+              loading="lazy"
+              alt="About Us"
+              className="img-fluid rounded"
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+                borderRadius: "5px",
+              }}
+            />
           </div>
           <div className="col-md-6" style={{ fontSize: "1.5rem" }}>
             <h1 className="fw-bolder pb-md-3 text-center display-2">

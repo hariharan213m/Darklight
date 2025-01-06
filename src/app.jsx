@@ -17,14 +17,16 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase/firebase";
 import Notfound from "./Components/Notfound";
 
+
 export function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(null); // Initially set to null
+ 
+
+  const [isAuthenticated, setIsAuthenticated] = useState(null); 
 
   const location = useLocation();
 
-  // Sync Firebase auth state with localStorage and check login status
+
   useEffect(() => {
-    // Listen to auth state change and set isAuthenticated accordingly
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setIsAuthenticated(true);

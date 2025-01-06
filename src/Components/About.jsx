@@ -54,7 +54,7 @@ const About = () => {
       style={{
         width: "100%",
         background: "#fff",
-        paddingTop: "2rem",
+        paddingTop: "2.5rem",
       }}
     >
       <div
@@ -141,7 +141,7 @@ const About = () => {
                   className="text-dark fw-bolder"
                   style={{ fontSize: "2.5rem", letterSpacing: "1px" }}
                 >
-                  KARUPASAAMI
+                  KARUPPASAMY
                 </h1>
                 {/* Subtitle */}
                 <h4
