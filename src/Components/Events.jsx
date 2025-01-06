@@ -1,5 +1,6 @@
 import React from "react";
 import playBots from "../assets/19198019.jpg";
+import LazyLoad from "react-lazyload";
 
 const Events = () => {
   return (
@@ -18,18 +19,20 @@ const Events = () => {
               background: "linear-gradient(to bottom right, #ffffff, #fbeaff)",
             }}
           >
-            <img
-              src={playBots}
-              loading="lazy"
-              className="card-img-top"
-              alt="Play bots"
-              style={{
-                height: "300px",
-                borderTopLeftRadius: "20px",
-                borderTopRightRadius: "20px",
-                objectFit: "cover",
-              }}
-            />
+            <LazyLoad height={300} offset={100}>
+              <img
+                src={playBots}
+                loading="lazy"
+                className="card-img-top"
+                alt="Play bots"
+                style={{
+                  height: "300px",
+                  borderTopLeftRadius: "20px",
+                  borderTopRightRadius: "20px",
+                  objectFit: "cover",
+                }}
+              />
+            </LazyLoad>
             <div className="card-body text-center">
               <h5
                 className="card-title fw-bolder"

@@ -4,6 +4,7 @@ import { IoClose } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import { doSignOut } from "../firebase/auth";
 import logo from "../assets/Darklight.png";
+import LazyLoad from "react-lazyload";
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -71,16 +72,18 @@ const Header = () => {
             alignItems: "center",
           }}
         >
-          <img
-            className="logo"
-            src={logo}
-            alt="Website Logo"
-            style={{
-             
-              width: "100px", // Default size
-              height: "40px",
-            }}
-          />
+          <LazyLoad height={200} offset={100}>
+            <img
+              className="logo"
+              loading="lazy"
+              src={logo}
+              alt="Website Logo"
+              style={{
+                width: "100px", // Default size
+                height: "40px",
+              }}
+            />
+          </LazyLoad>
           <span
             className="text-dark"
             style={{

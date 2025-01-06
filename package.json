@@ -14,8 +14,10 @@
     "bootstrap": "^5.3.3",
     "firebase": "^11.1.0",
     "preact": "^10.25.0",
+    "prop-types": "^15.8.1",
     "react-countup": "^6.5.3",
     "react-icons": "^5.4.0",
+    "react-lazyload": "^3.2.1",
     "react-router-dom": "^7.1.0",
     "react-toastify": "^11.0.2"
   },

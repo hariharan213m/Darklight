@@ -1,6 +1,7 @@
 import React from "react";
 import courseImg from "../assets/6592321.jpg";
 import { useState } from "react";
+import LazyLoad from "react-lazyload";
 const DemoClass = () => {
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
@@ -72,7 +73,7 @@ const DemoClass = () => {
       </h1>
       <div className="row justify-content-center">
         <div
-          className=" shadow rounded-4 p-3"
+          className="shadow rounded-4 p-3"
           style={{
             maxWidth: "1200px",
             backgroundColor: "#f9f9f9",
@@ -80,19 +81,21 @@ const DemoClass = () => {
           }}
         >
           <div className="row g-0 align-items-center">
-            {/* Left Image Section */}
+            {/* Left Image Section with LazyLoad */}
             <div className="col-md-6 d-flex justify-content-center">
-              <img
-                src={courseImg}
-                alt="About Us"
-                className="img-fluid rounded-start"
-                loading="lazy"
-                style={{
-                  width: "80%",
-                  height: "auto",
-                  borderRadius: "0.5rem 0 0 0.5rem", // Rounded corners for the left side
-                }}
-              />
+              <LazyLoad height={200} offset={100}>
+                <img
+                  src={courseImg}
+                  alt="About Us"
+                  className="img-fluid rounded-start"
+                  loading="lazy"
+                  style={{
+                    width: "80%",
+                    height: "auto",
+                    borderRadius: "0.5rem 0 0 0.5rem", // Rounded corners for the left side
+                  }}
+                />
+              </LazyLoad>
             </div>
 
             {/* Right Content Section */}
@@ -129,7 +132,6 @@ const DemoClass = () => {
           </div>
         </div>
       </div>
-
       {/* Modal */}
       {showModal && (
         <div

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
-import { doSignInWithEmailAndPassword } from "../firebase/auth"; 
+import { doSignInWithEmailAndPassword } from "../firebase/auth";
 import { useAuth } from "../contexts/authContext";
 import { useNavigate } from "react-router-dom";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
@@ -11,17 +11,17 @@ const Login = ({ onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { user } = useAuth(); 
+  const { user } = useAuth();
 
   const handleLogin = (e) => {
-    e.preventDefault(); 
-    onLogin(); 
-    navigate("/"); 
+    e.preventDefault();
+    if (!email || !password) {
+      setError("Email and password are required.");
+      return;
+    }
+    onLogin();
+    navigate("/"); // Navigates to Home after login
   };
-
-  // const goToRegister = () => {
-  //   navigate("/register");
-  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,18 +30,33 @@ const Login = ({ onLogin }) => {
     const password = e.target.password.value.trim();
 
     if (!email || !password) {
-      alert("Email and password are required");
+      setError("Email and password are required.");
       return;
     }
 
+    // Log the email and password before trying to sign in
+    console.log("Attempting sign-in with email:", email);
+    console.log("Attempting sign-in with password:", password);
+
     try {
+      // Attempt to sign in with email and password
       await doSignInWithEmailAndPassword(email, password);
       console.log("Signed in with email:", email);
-      onLogin(); 
-      navigate("/"); 
+
+      // Only call onLogin after successful sign-in
+      onLogin();
+      navigate("/"); // Navigate to Home after successful login
     } catch (error) {
+      // Handle authentication errors
       console.error("Error signing in:", error.message);
-      setError("Invalid email or password. Please try again.");
+
+      if (error.code === "auth/wrong-password") {
+        setError("Incorrect password. Please try again.");
+      } else if (error.code === "auth/user-not-found") {
+        setError("No user found with this email.");
+      } else {
+        setError("An error occurred. Please try again.");
+      }
     }
   };
 
@@ -49,12 +64,13 @@ const Login = ({ onLogin }) => {
     const provider = new GoogleAuthProvider();
 
     try {
-      const result = await signInWithPopup(auth, provider); 
-      const user = result.user; 
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
       console.log("Signed in with Google:", user);
 
-      onLogin(); 
-      navigate("/"); 
+      // Call onLogin only if Google sign-in is successful
+      onLogin();
+      navigate("/"); // Navigate to Home after successful Google sign-in
     } catch (err) {
       console.error("Google Sign-In failed:", err.message);
       setError(err.message || "Google sign-in failed. Please try again.");
@@ -120,7 +136,6 @@ const Login = ({ onLogin }) => {
             type="submit"
             className="btn btn-primary w-100 mb-3 fw-bold"
             style={{ fontSize: "1.4rem", padding: "8px", letterSpacing: 1 }}
-            onClick={handleLogin}
           >
             Login
           </button>

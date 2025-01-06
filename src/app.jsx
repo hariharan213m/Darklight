@@ -4,7 +4,7 @@ import Header from "./Components/Header";
 import Home from "./Components/Home";
 import Gallery from "./Components/Gallery";
 import Footer from "./Components/Footer";
-import { Route, Routes, Navigate, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./app.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
@@ -14,23 +14,13 @@ import Register from "./Components/Register";
 import React, { useState, useEffect } from "react";
 import Events from "./Components/Events";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./firebase/firebase"; // Import your Firebase auth instance
+import { auth } from "./firebase/firebase";
+import Notfound from "./Components/Notfound";
 
 export function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(null); // Initially set to null
 
   const location = useLocation();
-
-  // This function will handle login when the button is clicked
-  const loginHandler = () => {
-    setIsAuthenticated(true);
-    localStorage.setItem("isAuthenticated", true); // Persist state in localStorage
-  };
-
-  const logoutHandler = () => {
-    setIsAuthenticated(false);
-    localStorage.removeItem("isAuthenticated"); // Clear state from localStorage
-  };
 
   // Sync Firebase auth state with localStorage and check login status
   useEffect(() => {
@@ -42,14 +32,6 @@ export function App() {
         setIsAuthenticated(false);
       }
     });
-
-    // Check localStorage for persisted authentication state
-    const persistedAuthState = JSON.parse(
-      localStorage.getItem("isAuthenticated")
-    );
-    if (persistedAuthState !== null) {
-      setIsAuthenticated(persistedAuthState);
-    }
 
     // Cleanup listener when component unmounts
     return () => unsubscribe();
@@ -65,30 +47,31 @@ export function App() {
     return null;
   }
 
+  // Function to handle login state change
+  const handleLogin = () => {
+    setIsAuthenticated(true); // Set authenticated state to true after successful login
+  };
+
   return (
     <div>
       {/* Show Header only if not on Login or Register */}
-      {shouldShowHeaderFooter && <Header onLogout={logoutHandler} />}
+      {shouldShowHeaderFooter && <Header user={isAuthenticated} />}
 
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login onLogin={loginHandler} />} />
+        <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/register" element={<Register />} />
 
-        {/* Protected Routes */}
-        {isAuthenticated ? (
-          <>
-            <Route path="/courses" element={<Courses />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/courses/:id" element={<Levels />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/about" element={<About />} />
-          </>
-        ) : (
-          // Redirect to /login if not authenticated
-          <Route path="*" element={<Navigate to="/login" replace />} />
-        )}
+        {/* All Components Accessible Regardless of Authentication */}
+        <Route path="/courses" element={<Courses />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/courses/:id" element={<Levels />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/about" element={<About />} />
+
+        {/* Catch-All Route for 404 Not Found */}
+        <Route path="*" element={<Notfound />} />
       </Routes>
 
       {/* Show Footer only if not on Login or Register */}

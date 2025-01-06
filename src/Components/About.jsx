@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import img1 from "../assets/img1.jpg";
 import { FaUser } from "react-icons/fa";
+import LazyLoad from "react-lazyload";
 const About = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -120,18 +121,19 @@ const About = () => {
                 border: "none",
               }}
             >
-              {/* Card Image */}
-              <img
-                src={img1}
-                loading="lazy"
-                alt="About Us"
-                className="card-img-top rounded-top"
-                style={{
-                  height: "auto",
-                  borderRadius: "0.5rem 0.5rem 0 0",
-                }}
-              />
-
+              {/* Card Image */}{" "}
+              <LazyLoad height={200} offset={100}>
+                <img
+                  src={img1}
+                  loading="lazy"
+                  alt="About Us"
+                  className="card-img-top rounded-top"
+                  style={{
+                    height: "auto",
+                    borderRadius: "0.5rem 0.5rem 0 0",
+                  }}
+                />
+              </LazyLoad>
               {/* Card Body */}
               <div className="card-body text-center">
                 {/* Title */}

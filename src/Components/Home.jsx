@@ -10,6 +10,7 @@ import { FaUserTie } from "react-icons/fa";
 import { FaChessKing } from "react-icons/fa6";
 import { FaChess } from "react-icons/fa";
 import kidChess from "../assets/kid.jpg";
+import LazyLoad from "react-lazyload";
 
 const Home = () => {
   return (
@@ -59,16 +60,18 @@ const Home = () => {
           </div>
 
           <div className="col-12 col-md-6 d-flex justify-content-center mt-4 mt-md-0">
-            <img
-              src={homeImage}
-              alt="home-image"
-              className="img-fluid"
-              style={{
-                maxWidth: "100%",
-                height: "auto",
-              }}
-              loading="lazy"
-            />
+            <LazyLoad height={200} offset={100}>
+              <img
+                src={homeImage}
+                alt="home-image"
+                className="img-fluid"
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                }}
+                loading="lazy"
+              />
+            </LazyLoad>
           </div>
         </div>
       </section>
@@ -164,16 +167,18 @@ const Home = () => {
             </div>
           </div>
           <div className="col-md-6 d-flex justify-content-center">
-            <img
-              src={kidChess}
-              loading="lazy"
-              alt="Child Centric"
-              className="img-fluid rounded-4"
-              style={{
-                maxWidth: "100%",
-                height: "auto",
-              }}
-            />
+            <LazyLoad height={200} offset={100}>
+              <img
+                src={kidChess}
+                loading="lazy"
+                alt="Child Centric"
+                className="img-fluid rounded-4"
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                }}
+              />
+            </LazyLoad>
           </div>
         </div>
       </section>
@@ -189,18 +194,19 @@ const Home = () => {
       >
         <div className="row align-items-center">
           <div className="col-md-6">
-            {" "}
-            <img
-              src={tournament}
-              loading="lazy"
-              alt="About Us"
-              className="img-fluid rounded"
-              style={{
-                maxWidth: "100%",
-                height: "auto",
-                borderRadius: "5px",
-              }}
-            />
+            <LazyLoad height={200} offset={100}>
+              <img
+                src={tournament}
+                loading="lazy"
+                alt="About Us"
+                className="img-fluid rounded"
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                  borderRadius: "5px",
+                }}
+              />
+            </LazyLoad>
           </div>
           <div className="col-md-6" style={{ fontSize: "1.5rem" }}>
             <h1 className="fw-bolder pb-md-3 text-center display-2">
