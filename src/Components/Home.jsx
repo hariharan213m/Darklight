@@ -3,14 +3,10 @@ import homeImage from "../assets/10124522.jpg";
 import Progress from "./Progress";
 import DemoClass from "./DemoClass";
 import { Link } from "react-router-dom";
-import { FaChild } from "react-icons/fa";
-import tournament from "../assets/Tabs.jpg";
 import WhyChooseUs from "./WhyChooseUs";
-import { FaUserTie } from "react-icons/fa";
-import { FaChessKing } from "react-icons/fa6";
-import { FaChess } from "react-icons/fa";
-import kidChess from "../assets/kid.jpg";
 import LazyLoad from "react-lazyload";
+import ChildCentric from "./ChildCentric";
+import Tournaments from "./Tournaments";
 
 const Home = () => {
   return (
@@ -76,167 +72,9 @@ const Home = () => {
         </div>
       </section>
       <DemoClass />
-      <section
-        className=" align-content-center"
-        style={{
-          fontFamily: '"Bodoni", serif',
-          padding: "4% 9%",
-        }}
-      >
-        <div className="container text-center pb-5">
-          <h2 className="fw-bold display-2 text-primary">
-            <FaChild className="me-2" /> Child Centric
-          </h2>
-          <p className="lead text-muted" style={{ fontSize: "1.5rem" }}>
-            We prioritize your child’s development and engagement through
-            structured chess activities.
-          </p>
-        </div>
-
-        <div className="container row align-items-center ">
-          <div className="col-md-6 col-lg-6 col-sm-12">
-            <div className=" h-100 d-flex border-0">
-              <div className="d-flex align-items-center">
-                <div
-                  className="icon text-primary me-5 "
-                  style={{ fontSize: "3.5rem", marginBottom: "5rem" }}
-                >
-                  <FaUserTie />
-                </div>
-                <div>
-                  <h5
-                    className="mb-2 text-uppercase fw-bold"
-                    style={{ fontSize: "2rem" }}
-                  >
-                    Trained & Experienced Staff
-                  </h5>
-                  <p style={{ fontSize: "1.5rem" }}>
-                    Our coaches are certified professionals dedicated to your
-                    child's growth.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className=" h-100 d-flex border-0">
-              <div className="d-flex align-items-center">
-                <div
-                  className="icon text-primary me-5"
-                  style={{ fontSize: "3.5rem", marginBottom: "5rem" }}
-                >
-                  <FaChessKing />
-                </div>
-                <div>
-                  <h5
-                    className="mb-2 text-uppercase fw-bold"
-                    style={{ fontSize: "2rem" }}
-                  >
-                    Engaging Playful Activity
-                  </h5>
-                  <p style={{ fontSize: "1.5rem" }}>
-                    Interactive sessions to keep children excited and curious
-                    about chess.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className=" h-100 d-flex border-0">
-              <div
-                className="d-flex align-items-center"
-                style={{ lineHeight: "2" }}
-              >
-                <div
-                  className="icon text-primary me-5"
-                  style={{ fontSize: "3.5rem", marginBottom: "5rem" }}
-                >
-                  <FaChess />
-                </div>
-                <div>
-                  <h5
-                    className="mb-2 text-uppercase fw-bold"
-                    style={{ fontSize: "2rem" }}
-                  >
-                    Child Friendly
-                  </h5>
-                  <p style={{ fontSize: "1.5rem" }}>
-                    A safe, fun environment tailored for young learners.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-6 d-flex justify-content-center">
-            <img
-              src={kidChess}
-              alt="Child Centric"
-              loading="lazy"
-              className="img-fluid rounded-4"
-              style={{
-                maxWidth: "100%",
-                height: "auto",
-              }}
-            />
-          </div>
-        </div>
-      </section>
-
-      <section
-        style={{
-          width: "100%",
-          height: "auto",
-          backgroundColor: "#fff",
-          zIndex: 1,
-          padding: "4% 9%",
-        }}
-      >
-        <div className="row align-items-center">
-          <div className="col-md-6">
-            <img
-              src={tournament}
-              loading="lazy"
-              alt="About Us"
-              className="img-fluid rounded"
-              style={{
-                maxWidth: "100%",
-                height: "auto",
-                borderRadius: "5px",
-              }}
-            />
-          </div>
-          <div className="col-md-6" style={{ fontSize: "1.5rem" }}>
-            <h1 className="fw-bolder pb-md-3 text-center display-2">
-              Dark<span style={{ color: "red" }}>Light</span> Tournaments
-            </h1>
-            <p className="pb-md-3">
-              Personally we believe in improving students skill through our
-              Fellow academy tournaments to encourage them to learn from their
-              flaws, we also conduct tournaments online.
-            </p>
-            <p className="pb-md-3">
-              During the starting stages of Darklight, we were teaching our
-              friends to win against their opponent and some their siblings and
-              it was fun doing that but as days went we started coaching
-              students from our home, to make chess accessible for all in a
-              professional I started Darklight, this was a motivating factor to
-              Develop a academy.
-            </p>
-            <p className="pb-md-3 ">
-              Darklight welcomes students who are willing to master chess and
-              also loves to teach every bit of learning in chess,{" "}
-              <span className="fw-bolder" style={{ color: "red" }}>
-                BECAUSE EVERY MOVE MATTERS
-              </span>
-            </p>
-            <p className="pb-md-3 ">
-              We strongly believe that age is not a criteria to learn chess.
-            </p>
-          </div>
-        </div>
-      </section>
-
+      <ChildCentric />
+      <Tournaments />
       <Progress />
-
       <WhyChooseUs />
     </>
   );

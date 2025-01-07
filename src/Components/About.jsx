@@ -1,52 +1,18 @@
 import React from "react";
-import { useState } from "react";
 import img1 from "../assets/img1.jpg";
 import { FaUser } from "react-icons/fa";
 import LazyLoad from "react-lazyload";
+import { useContext } from "react";
+import DataContext from "../context/DataContext";
 const About = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    contactNo: "",
-    mode: "",
-    level: "",
-    location: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Submitting Form Data:", formData); // Log the form data
-    const { name, contactNo, mode, level, location } = formData;
-
-    // Validate required fields
-    if (!name || !contactNo || !mode || !level || !location) {
-      alert("Please fill in all fields before submitting.");
-      return;
-    }
-
-    const whatsappMessage = `Name: ${formData.name}\nContact No: ${contactNo}\nMode: ${mode}\nLevel: ${level}\nLocation: ${location}`;
-    const phoneNumber = "918300155259";
-    const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-      whatsappMessage
-    )}`;
-
-    window.open(whatsappLink, "_blank");
-
-    setFormData({
-      name: "",
-      contactNo: "",
-      mode: "",
-      level: "",
-      location: "",
-    });
-  };
+  const {
+    handleShow,
+    showModal,
+    handleClose,
+    formData,
+    handleChange,
+    handleSubmit,
+  } = useContext(DataContext);
 
   return (
     <section

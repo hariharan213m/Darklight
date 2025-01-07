@@ -16,15 +16,12 @@ import Events from "./Components/Events";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase/firebase";
 import Notfound from "./Components/Notfound";
-
+import { DataProvider } from "./context/DataContext";
 
 export function App() {
- 
-
-  const [isAuthenticated, setIsAuthenticated] = useState(null); 
+  const [isAuthenticated, setIsAuthenticated] = useState(null);
 
   const location = useLocation();
-
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -56,28 +53,28 @@ export function App() {
 
   return (
     <div>
-      {/* Show Header only if not on Login or Register */}
-      {shouldShowHeaderFooter && <Header user={isAuthenticated} />}
+      <DataProvider>
+        {/* Show Header only if not on Login or Register */}
+        {shouldShowHeaderFooter && <Header user={isAuthenticated} />}{" "}
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route path="/register" element={<Register />} />
 
-      <Routes>
-        {/* Public Routes */}
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login onLogin={handleLogin} />} />
-        <Route path="/register" element={<Register />} />
+          {/* All Components Accessible Regardless of Authentication */}
+          <Route path="/courses" element={<Courses />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/courses/:id" element={<Levels />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/about" element={<About />} />
 
-        {/* All Components Accessible Regardless of Authentication */}
-        <Route path="/courses" element={<Courses />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/courses/:id" element={<Levels />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/about" element={<About />} />
-
-        {/* Catch-All Route for 404 Not Found */}
-        <Route path="*" element={<Notfound />} />
-      </Routes>
-
-      {/* Show Footer only if not on Login or Register */}
-      {shouldShowHeaderFooter && <Footer />}
+          {/* Catch-All Route for 404 Not Found */}
+          <Route path="*" element={<Notfound />} />
+        </Routes>
+        {/* Show Footer only if not on Login or Register */}
+        {shouldShowHeaderFooter && <Footer />}
+      </DataProvider>
     </div>
   );
 }

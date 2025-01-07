@@ -1,61 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import courseImg from "../assets/6592321.jpg";
-import { useState } from "react";
 import LazyLoad from "react-lazyload";
+import DataContext from "../context/DataContext";
 const DemoClass = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    contactNo: "",
-    mode: "",
-    level: "",
-    location: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const handleShow = () => setShowModal(true);
-  const handleClose = () => setShowModal(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    handleClose();
-    e.target.reset();
-
-    console.log("Submitting Form Data:", formData); // Log the form data
-    const { name, contactNo, mode, level, location } = formData;
-
-    // Validate required fields
-    if (!name || !contactNo || !mode || !level || !location) {
-      alert("Please fill in all fields before submitting.");
-      return;
-    }
-
-    // Construct WhatsApp message
-    const whatsappMessage = `Name: ${formData.name}\nContact No: ${contactNo}\nMode: ${mode}\nLevel: ${level}\nLocation: ${location}`;
-    const phoneNumber = "918300155259"; // Use the international format without spaces or special characters
-    const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-      whatsappMessage
-    )}`;
-
-    // Open WhatsApp link
-    window.open(whatsappLink, "_blank");
-
-    // Reset the form data
-    setFormData({
-      name: "",
-      contactNo: "",
-      mode: "",
-      level: "",
-      location: "",
-    });
-  };
+  const {
+    handleShow,
+    showModal,
+    handleClose,
+    formData,
+    handleChange,
+    handleSubmit,
+  } = useContext(DataContext);
 
   return (
     <section
