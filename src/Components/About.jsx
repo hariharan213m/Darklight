@@ -88,18 +88,16 @@ const About = () => {
               }}
             >
               {/* Card Image */}{" "}
-              <LazyLoad height={200} offset={100}>
-                <img
-                  src={img1}
-                  loading="lazy"
-                  alt="About Us"
-                  className="card-img-top rounded-top"
-                  style={{
-                    height: "auto",
-                    borderRadius: "0.5rem 0.5rem 0 0",
-                  }}
-                />
-              </LazyLoad>
+              <img
+                src={img1}
+                loading="lazy"
+                alt="About Us"
+                className="card-img-top rounded-top"
+                style={{
+                  height: "auto",
+                  borderRadius: "0.5rem 0.5rem 0 0",
+                }}
+              />
               {/* Card Body */}
               <div className="card-body text-center">
                 {/* Title */}

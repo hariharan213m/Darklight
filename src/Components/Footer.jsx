@@ -1,14 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <div
-    id="footer"
+      id="footer"
       style={{
         background: "#001524",
         color: "#fff",
         padding: "20px 0",
- 
       }}
     >
       <div
@@ -28,7 +28,7 @@ const Footer = () => {
           >
             DarkLight
           </h2>
-          <p>
+          <p style={{ fontSize: "1.25rem" }}>
             Join the ultimate chess community. Play, learn, and compete with
             players worldwide!
           </p>
@@ -46,7 +46,9 @@ const Footer = () => {
             }}
           >
             <li>
-              <p>About</p>
+              <Link to="about" className="text-decoration-none text-light">
+                About
+              </Link>
             </li>
             <li>
               <p>Help Centre</p>

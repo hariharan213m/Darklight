@@ -67,7 +67,6 @@ const Header = () => {
           style={{
             padding: "6px 0 3px 9%",
             display: "flex",
-            flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
           }}
@@ -88,7 +87,7 @@ const Header = () => {
             className="text-dark"
             style={{
               margin: "0",
-              fontSize: "1rem",
+              fontSize: "1.2rem",
               textAlign: "center",
             }}
           >
@@ -143,6 +142,15 @@ const Header = () => {
                 onClick={() => setIsVisible(false)}
               >
                 Events
+              </Link>
+            </li>
+            <li className="mx-3">
+              <Link
+                to="Blogs"
+                className="text-decoration-none text-dark"
+                onClick={() => setIsVisible(false)}
+              >
+                Blogs
               </Link>
             </li>
             <li className="mx-3">

@@ -1,20 +1,35 @@
 import React from "react";
 import playBots from "../assets/19198019.jpg";
 import LazyLoad from "react-lazyload";
+import BgEvent from "../assets/BgEvent.jpg";
 
 const Events = () => {
   return (
     <div
       className="container align-content-center"
-      style={{ minHeight: "100vh" }}
+      style={{
+        minHeight: "100vh",
+      }}
     >
       <div className="row justify-content-center">
         <div className="col-12 col-sm-6 col-md-4 col-lg-6 mb-4 d-flex justify-content-center">
+          <LazyLoad height={300} offset={100}>
+            <img
+              src={BgEvent}
+              loading="lazy"
+              style={{
+                height: "710px",
+                width: "550px",
+              }}
+            />
+          </LazyLoad>
+        </div>
+        <div className="col-12 col-sm-6 col-md-4 col-lg-6 mb-4 d-flex justify-content-center align-items-center">
           <div
             className="card shadow-lg border-0"
             style={{
               width: "100%",
-              maxWidth: "900px",
+              maxWidth: "600px",
               borderRadius: "20px",
               background: "linear-gradient(to bottom right, #ffffff, #fbeaff)",
             }}

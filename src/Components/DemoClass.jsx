@@ -38,19 +38,17 @@ const DemoClass = () => {
           <div className="row g-0 align-items-center">
             {/* Left Image Section with LazyLoad */}
             <div className="col-md-6 d-flex justify-content-center">
-              <LazyLoad height={200} offset={100}>
-                <img
-                  src={courseImg}
-                  alt="About Us"
-                  className="img-fluid rounded-start"
-                  loading="lazy"
-                  style={{
-                    width: "80%",
-                    height: "auto",
-                    borderRadius: "0.5rem 0 0 0.5rem", // Rounded corners for the left side
-                  }}
-                />
-              </LazyLoad>
+              <img
+                src={courseImg}
+                alt="About Us"
+                className="img-fluid rounded-start"
+                loading="lazy"
+                style={{
+                  width: "80%",
+                  height: "auto",
+                  borderRadius: "0.5rem 0 0 0.5rem", // Rounded corners for the left side
+                }}
+              />
             </div>
 
             {/* Right Content Section */}

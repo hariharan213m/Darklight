@@ -1,11 +1,12 @@
 import { defineConfig } from "vite";
 import preact from "@preact/preset-vite";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [preact()],
   build: {
     outDir: "dist",
-    chunkSizeWarningLimit: 1000,
+  },
+  server: {
+    historyApiFallback: true, // Redirect all SPA routes to index.html
   },
 });

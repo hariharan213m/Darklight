@@ -56,18 +56,16 @@ const Home = () => {
           </div>
 
           <div className="col-12 col-md-6 d-flex justify-content-center mt-4 mt-md-0">
-            <LazyLoad height={200} offset={100}>
-              <img
-                src={homeImage}
-                alt="home-image"
-                className="img-fluid"
-                style={{
-                  maxWidth: "100%",
-                  height: "auto",
-                }}
-                loading="lazy"
-              />
-            </LazyLoad>
+            <img
+              src={homeImage}
+              alt="home-image"
+              className="img-fluid"
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+              }}
+              loading="lazy"
+            />
           </div>
         </div>
       </section>

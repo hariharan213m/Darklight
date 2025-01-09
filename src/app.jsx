@@ -17,6 +17,8 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase/firebase";
 import Notfound from "./Components/Notfound";
 import { DataProvider } from "./context/DataContext";
+import ScrollToTop from "./Components/ScrollToTop";
+import Blogs from "./Components/Blogs";
 
 export function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
@@ -52,8 +54,9 @@ export function App() {
   };
 
   return (
-    <div>
+    <div id="main-content" style={{ overflow: "auto", height: "100vh" }}>
       <DataProvider>
+        <ScrollToTop />
         {/* Show Header only if not on Login or Register */}
         {shouldShowHeaderFooter && <Header user={isAuthenticated} />}{" "}
         <Routes>
@@ -65,6 +68,7 @@ export function App() {
           {/* All Components Accessible Regardless of Authentication */}
           <Route path="/courses" element={<Courses />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/blogs" element={<Blogs />} />
           <Route path="/courses/:id" element={<Levels />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/about" element={<About />} />

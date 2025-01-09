@@ -1,6 +1,5 @@
 import React from "react";
 import onlineClass from "../assets/rb_6428.png";
-import LazyLoad from "react-lazyload";
 import offlineClass from "../assets/5385181.jpg";
 import { Link } from "react-router-dom";
 import OnlineClasses from "./OnlineClasses";
@@ -69,20 +68,19 @@ const Courses = () => {
                   boxShadow: "0 4px 12px rgba(0, 123, 255, 0.5)",
                 }}
               >
-                <LazyLoad height={300} offset={100}>
-                  <img
-                    src={onlineClass}
-                    className="card-img-top"
-                    alt="Online-Class"
-                    loading="lazy"
-                    style={{
-                      height: "300px",
-                      borderTopLeftRadius: "20px",
-                      borderTopRightRadius: "20px",
-                      objectFit: "cover",
-                    }}
-                  />
-                </LazyLoad>
+                <img
+                  src={onlineClass}
+                  className="card-img-top"
+                  alt="Online-Class"
+                  loading="lazy"
+                  style={{
+                    height: "300px",
+                    borderTopLeftRadius: "20px",
+                    borderTopRightRadius: "20px",
+                    objectFit: "cover",
+                  }}
+                />
+
                 <div className="card-body text-center">
                   <h5
                     className="card-title fw-bolder"
@@ -125,20 +123,19 @@ const Courses = () => {
                   boxShadow: "0 4px 12px rgba(0, 128, 0, 0.5)",
                 }}
               >
-                <LazyLoad height={300} offset={100}>
-                  <img
-                    src={offlineClass}
-                    loading="lazy"
-                    className="card-img-top"
-                    alt="Offline-Class"
-                    style={{
-                      height: "300px",
-                      borderTopLeftRadius: "20px",
-                      borderTopRightRadius: "20px",
-                      objectFit: "cover",
-                    }}
-                  />
-                </LazyLoad>
+                <img
+                  src={offlineClass}
+                  loading="lazy"
+                  className="card-img-top"
+                  alt="Offline-Class"
+                  style={{
+                    height: "300px",
+                    borderTopLeftRadius: "20px",
+                    borderTopRightRadius: "20px",
+                    objectFit: "cover",
+                  }}
+                />
+
                 <div className="card-body text-center">
                   <h5
                     className="card-title fw-bolder"
