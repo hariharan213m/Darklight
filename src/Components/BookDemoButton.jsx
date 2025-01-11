@@ -1,7 +1,9 @@
-import React, { useContext } from "react";
-import courseImg from "../assets/6592321.jpg";
+import React from "react";
+import { FaCalendarAlt } from "react-icons/fa";
+import { useContext } from "react";
 import DataContext from "../context/DataContext";
-const DemoClass = () => {
+
+const BookDemoButton = () => {
   const {
     handleShow,
     showModal,
@@ -10,80 +12,33 @@ const DemoClass = () => {
     handleChange,
     handleSubmit,
   } = useContext(DataContext);
-
   return (
-    <section
+    <div
+      id="book-demo-button"
       style={{
-        width: "100%",
-        height: "auto",
-        backgroundColor: "#fff",
-        zIndex: 1,
-        padding: "4% 9%",
+        position: "fixed",
+        bottom: "20px",
+        right: "30px",
+        zIndex: 1000,
       }}
     >
-      {/* Title */}
-      <h1 className="fw-bold display-2 my-5 text-center">
-        Book A Free Demo Class
-      </h1>
-      <div className="row justify-content-center">
-        <div
-          className="shadow rounded-4 p-3"
-          style={{
-            maxWidth: "1200px",
-            backgroundColor: "#f9f9f9",
-            border: "none",
-          }}
-        >
-          <div className="row g-0 align-items-center">
-            {/* Left Image Section with LazyLoad */}
-            <div className="col-md-6 d-flex justify-content-center">
-              <img
-                src={courseImg}
-                alt="About Us"
-                className="img-fluid rounded-start"
-                loading="lazy"
-                style={{
-                  width: "80%",
-                  height: "auto",
-                  borderRadius: "0.5rem 0 0 0.5rem", // Rounded corners for the left side
-                }}
-              />
-            </div>
-
-            {/* Right Content Section */}
-            <div className="col-md-6">
-              <p
-                className="mb-4"
-                style={{ fontSize: "1.5rem", lineHeight: "1.8" }}
-              >
-                Book a free demo to get to know about our Darklight coaching and
-                to assess levels in chess. Whether you're a beginner,
-                intermediate, or advanced player, our coaches have plans to
-                teach you. Ready for an adventure in Chess? Join our free demo
-                to explore the world of chess.
-              </p>
-              <p style={{ fontSize: "1.5rem", lineHeight: "1.8" }}>
-                Plus, connect with like-minded chess enthusiasts in a vibrant
-                and supportive community that shares your passion for the game.
-              </p>
-
-              {/* Button */}
-              <div className="mt-4 text-center">
-                <button
-                  className="btn btn-primary fw-bold rounded-4"
-                  onClick={handleShow}
-                  style={{
-                    fontSize: "1.2rem",
-                    padding: "0.8rem 2rem",
-                  }}
-                >
-                  Book A Demo
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <button
+        className="btn d-flex align-items-center justify-content-center"
+        style={{
+          backgroundColor: "#ffcc00",
+          color: "white",
+          borderRadius: "50px",
+          padding: "10px 20px",
+          boxShadow: "0 4px 6px rgba(255, 204, 0, 0.5)",
+          fontSize: "1.5rem",
+        }}
+        onClick={handleShow}
+      >
+        <span style={{ marginRight: "8px", marginBottom: "4px" }}>
+          <FaCalendarAlt />
+        </span>
+        Book a Demo
+      </button>
       {/* Modal */}
       {showModal && (
         <div
@@ -265,8 +220,8 @@ const DemoClass = () => {
           </div>
         </div>
       )}
-    </section>
+    </div>
   );
 };
 
-export default DemoClass;
+export default BookDemoButton;

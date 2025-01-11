@@ -86,6 +86,7 @@ const Header = () => {
           <span
             className="text-dark"
             style={{
+              display: "block",
               margin: "0",
               fontSize: "1.2rem",
               textAlign: "center",

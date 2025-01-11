@@ -1,7 +1,6 @@
 import React from "react";
 import img1 from "../assets/img1.jpg";
 import { FaUser } from "react-icons/fa";
-import LazyLoad from "react-lazyload";
 import { useContext } from "react";
 import DataContext from "../context/DataContext";
 const About = () => {

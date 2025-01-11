@@ -57,7 +57,9 @@ const Footer = () => {
               <p>Business</p>
             </li>
             <li>
-              <p>Contact</p>
+              <Link to="contact" className="text-decoration-none text-light">
+                Contact
+              </Link>
             </li>
           </ul>
         </div>

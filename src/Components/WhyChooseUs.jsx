@@ -4,7 +4,6 @@ import {
   FaChalkboardTeacher,
   FaTrophy,
   FaLightbulb,
-  FaPeopleArrows,
 } from "react-icons/fa";
 const WhyChooseUs = () => {
   const features = [

@@ -4,9 +4,9 @@ import Progress from "./Progress";
 import DemoClass from "./DemoClass";
 import { Link } from "react-router-dom";
 import WhyChooseUs from "./WhyChooseUs";
-import LazyLoad from "react-lazyload";
 import ChildCentric from "./ChildCentric";
 import Tournaments from "./Tournaments";
+import BookDemoButton from "./BookDemoButton";
 
 const Home = () => {
   return (
@@ -74,6 +74,7 @@ const Home = () => {
       <Tournaments />
       <Progress />
       <WhyChooseUs />
+      <BookDemoButton />
     </>
   );
 };

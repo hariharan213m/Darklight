@@ -7,11 +7,10 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("app")).render(
   <React.StrictMode>
-    <AuthProvider> {/* Wrap your application with AuthProvider */}
+    <AuthProvider>
       <BrowserRouter future={{ v7_relativeSplatPath: true }}>
         <App />
       </BrowserRouter>
     </AuthProvider>
   </React.StrictMode>
 );
-
