@@ -9,4 +9,9 @@ export default defineConfig({
   server: {
     historyApiFallback: true, // Redirect all SPA routes to index.html
   },
+  resolve: {
+    alias: {
+      "@": "/src",
+    },
+  },
 });
