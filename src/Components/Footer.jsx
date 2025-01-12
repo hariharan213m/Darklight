@@ -112,8 +112,10 @@ const Footer = () => {
               fontSize: "1.5rem",
             }}
           >
-            <li>
-              <p className="text-decoration-none text-light">FAQs</p>
+            <li className="mb-2">
+              <Link to="faqs" className="text-decoration-none text-light">
+                FAQs
+              </Link>
             </li>
             <li>
               <p>Terms & Conditions</p>
