@@ -21,6 +21,7 @@ import ScrollToTop from "./Components/ScrollToTop";
 import Blogs from "./Components/Blogs";
 import Contact from "./Components/Contact";
 import Carrer from "./Components/Carrer";
+import FAQPage from "./Components/FAQpage";
 
 export function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
@@ -76,6 +77,7 @@ export function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/carrer" element={<Carrer />} />
+          <Route path="/faqs" element={<FAQPage />} />
 
           {/* Catch-All Route for 404 Not Found */}
           <Route path="*" element={<Notfound />} />

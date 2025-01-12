@@ -111,7 +111,9 @@ const Footer = () => {
             }}
           >
             <li>
-              <p>FAQs</p>
+              <Link to="faqs" className="text-decoration-none text-light">
+                FAQs
+              </Link>
             </li>
             <li>
               <p>Terms & Conditions</p>
