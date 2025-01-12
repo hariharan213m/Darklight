@@ -3,6 +3,7 @@ import img1 from "../assets/img1.jpg";
 import { FaUser } from "react-icons/fa";
 import { useContext } from "react";
 import DataContext from "../context/DataContext";
+
 const About = () => {
   const {
     handleShow,
@@ -203,7 +204,7 @@ const About = () => {
         </div>
       </div>
 
-      <section id="contact" className="container my-5 border shadow">
+      <section className="container my-5 border shadow">
         <div className="container">
           <h1
             className="fw-bold display-2 text-center"

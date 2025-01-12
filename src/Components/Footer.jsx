@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa"; // Importing WhatsApp and YouTube icons
 import { Container, Row, Col, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import MapComponent from "./MapComponent";
 
 const Footer = () => {
   return (
@@ -41,6 +42,7 @@ const Footer = () => {
             Join the ultimate chess community. Play, learn, and compete with
             players worldwide!
           </p>
+          <MapComponent />
         </div>
 
         {/* Column 2: Quick Links */}
@@ -54,7 +56,7 @@ const Footer = () => {
               fontSize: "1.5rem",
             }}
           >
-            <li>
+            <li className="mb-2">
               <Link to="about" className="text-decoration-none text-light">
                 About
               </Link>
@@ -110,7 +112,7 @@ const Footer = () => {
               fontSize: "1.5rem",
             }}
           >
-            <li>
+            <li className="mb-2">
               <Link to="faqs" className="text-decoration-none text-light">
                 FAQs
               </Link>
