@@ -47,11 +47,11 @@ const About = () => {
             </p>
             <p className="text-dark" style={{ fontSize: "1.5rem" }}>
               Currently, we have thriving coaching centers in{" "}
-              <strong>Kovilpatti</strong> and <strong>Thoothukudi</strong>, with
-              over 70 students already benefiting from our programs. We also
-              offer <strong>online chess coaching</strong> to make learning
-              accessible from anywhere. Whether you're at home or on the go,
-              mastering chess is just one step away! Book a{" "}
+              <strong>TamilNadu, India</strong>, with over 70 students already
+              benefiting from our programs. We also offer{" "}
+              <strong>online chess coaching</strong> to make learning accessible
+              from anywhere. Whether you're at home or on the go, mastering
+              chess is just one step away! Book a{" "}
               <strong>free demo session</strong> today and experience the
               Darklight difference – at no cost!
             </p>
@@ -203,7 +203,7 @@ const About = () => {
         </div>
       </div>
 
-      <section className="container my-5 border shadow">
+      <section id="contact" className="container my-5 border shadow">
         <div className="container">
           <h1
             className="fw-bold display-2 text-center"
