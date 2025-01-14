@@ -18,7 +18,10 @@ const Home = () => {
         }}
       >
         <div className="row align-items-center" style={{ paddingTop: "6rem" }}>
-          <div className="col-12 col-md-6 text-center text-md-start ps-md-5">
+          <div
+            className="col-12 col-md-6 text-center text-md-start ps-md-5"
+            data-aos="fade-right"
+          >
             <h1
               className="bold-header fw-bolder text-dark"
               style={{
@@ -39,6 +42,7 @@ const Home = () => {
                   fontSize: "1.5rem",
                   padding: ".7rem 3rem",
                 }}
+                data-aos="zoom-in"
               >
                 Get Started
               </Link>
@@ -49,13 +53,17 @@ const Home = () => {
                   fontSize: "1.5rem",
                   padding: ".7rem 3rem",
                 }}
+                data-aos="zoom-in"
               >
                 Learn More
               </Link>
             </div>
           </div>
 
-          <div className="col-12 col-md-6 d-flex justify-content-center mt-4 mt-md-0">
+          <div
+            className="col-12 col-md-6 d-flex justify-content-center mt-4 mt-md-0"
+            data-aos="fade-left"
+          >
             <img
               src={homeImage}
               alt="home-image"
@@ -68,7 +76,7 @@ const Home = () => {
             />
           </div>
         </div>
-      </section>
+      </section>{" "}
       <DemoClass />
       <ChildCentric />
       <Tournaments />

@@ -1,18 +1,51 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import playBots from "../assets/19198019.jpg";
 import LazyLoad from "react-lazyload";
 import BgEvent from "../assets/BgEvent.jpg";
 
 const Events = () => {
+  const sectionRef = useRef(null); // Ref for the section
+  const [isVisible, setIsVisible] = useState(false); // State for triggering animation
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true); // Trigger animation
+        }
+      },
+      { threshold: 0.3 } // Trigger when 30% of the section is visible
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div
-      className="container align-content-center"
+      ref={sectionRef}
+      className={`container align-content-center ${
+        isVisible ? "animate-section" : "hidden-section"
+      }`}
       style={{
         minHeight: "100vh",
+        transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
       }}
     >
       <div className="row justify-content-center">
-        <div className="d-none d-md-block col-12 col-md-6 col-lg-6 mb-4 d-flex justify-content-center">
+        {/* Left Image */}
+        <div
+          className={`d-none d-md-block col-12 col-md-6 col-lg-6 mb-4 d-flex justify-content-center ${
+            isVisible ? "fade-in-left" : "hidden-left"
+          }`}
+        >
           <LazyLoad height={300} offset={100}>
             <img
               src={BgEvent}
@@ -24,7 +57,13 @@ const Events = () => {
             />
           </LazyLoad>
         </div>
-        <div className="col-12 col-sm-6 col-md-6 col-lg-6 mb-4 d-flex justify-content-center align-items-center">
+
+        {/* Card */}
+        <div
+          className={`col-12 col-sm-6 col-md-6 col-lg-6 mb-4 d-flex justify-content-center align-items-center ${
+            isVisible ? "fade-in-right" : "hidden-right"
+          }`}
+        >
           <div
             className="card shadow-lg border-0"
             style={{

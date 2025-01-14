@@ -28,15 +28,15 @@ const Courses = () => {
       >
         <div className="row justify-content-center w-100 flex-wrap">
           {/* Section Header */}
-          <div className="row w-100">
+          <div className="row w-100" data-aos="fade-up">
             <div
               className="col text-center pb-5"
               style={{ fontFamily: "'Bodoni', serif" }}
             >
               <h1
-                className="fw-bold "
+                className="fw-bold"
                 style={{
-                  color: "	#009E60",
+                  color: "#009E60",
                   fontSize: "4.5rem",
                   fontFamily: "'Bodoni', serif",
                   letterSpacing: ".5px",
@@ -56,7 +56,10 @@ const Courses = () => {
           {/* Cards */}
           <div className="row justify-content-evenly">
             {/* Online Class Card */}
-            <div className="col-12 col-sm-6 col-md-5 col-lg-5 mb-4 d-flex justify-content-center">
+            <div
+              className="col-12 col-sm-6 col-md-5 col-lg-5 mb-4 d-flex justify-content-center"
+              data-aos="fade-up"
+            >
               <div
                 className="card border-0"
                 style={{
@@ -111,7 +114,10 @@ const Courses = () => {
             </div>
 
             {/* Offline Class Card */}
-            <div className="col-12 col-sm-6 col-md-5 col-lg-5 mb-4 d-flex justify-content-center">
+            <div
+              className="col-12 col-sm-6 col-md-5 col-lg-5 mb-4 d-flex justify-content-center"
+              data-aos="fade-up"
+            >
               <div
                 className="card border-0"
                 style={{
@@ -166,6 +172,7 @@ const Courses = () => {
             </div>
           </div>
         </div>
+
         {/* Modal */}
         {showModal && (
           <div

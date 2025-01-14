@@ -43,6 +43,19 @@ const Footer = () => {
             players worldwide!
           </p>
           <MapComponent />
+          <h2
+            style={{
+              fontSize: "18px",
+              marginTop: "1rem",
+              color: "#f2a900",
+              fontWeight: "bold",
+            }}
+          >
+            Another Branch
+          </h2>
+          <p style={{ fontSize: "1.25rem" }}>
+            4/96, Palai Main Rd, Ramson Nagar, Pudukottai, Tamil Nadu 628103
+          </p>
         </div>
 
         {/* Column 2: Quick Links */}

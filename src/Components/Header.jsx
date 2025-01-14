@@ -3,7 +3,7 @@ import { FaBars } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import { doSignOut } from "../firebase/auth";
-import logo from "../assets/Darklight.png";
+import logo from "../assets/IndexLogo.png";
 import LazyLoad from "react-lazyload";
 import { getAuth, signOut } from "firebase/auth";
 
@@ -78,8 +78,8 @@ const Header = () => {
               src={logo}
               alt="Website Logo"
               style={{
-                width: "120px", // Default size
-                height: "50px",
+                width: "70px", // Default size
+                height: "60px",
               }}
             />
           </LazyLoad>

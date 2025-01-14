@@ -1,7 +1,10 @@
 import React, { useContext } from "react";
 import courseImg from "../assets/6592321.jpg";
 import DataContext from "../context/DataContext";
+import  { useState, useEffect } from "react";
+
 const DemoClass = () => {
+  const [isInView, setIsInView] = useState(false);
   const {
     handleShow,
     showModal,
@@ -11,18 +14,51 @@ const DemoClass = () => {
     handleSubmit,
   } = useContext(DataContext);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+          }
+        });
+      },
+      {
+        threshold: 0.5, 
+      }
+    );
+
+    const section = document.getElementById("book-demo-section");
+    if (section) observer.observe(section);
+
+    return () => {
+      if (section) observer.unobserve(section);
+    };
+  }, []);
+
   return (
     <section
+      id="book-demo-section"
       style={{
         width: "100%",
         height: "auto",
         backgroundColor: "#fff",
         zIndex: 1,
         padding: "4% 9%",
+        transition: "opacity 1s ease-out, transform 1s ease-out",
+        opacity: isInView ? 1 : 0, // Fade-in effect
+        transform: isInView ? "translateY(0)" : "translateY(50px)", // Slide-in effect
       }}
     >
       {/* Title */}
-      <h1 className="fw-bold display-2 my-5 text-center">
+      <h1
+        className="fw-bold display-2 my-5 text-center"
+        style={{
+          transition: "opacity 1s ease-out, transform 1s ease-out",
+          opacity: isInView ? 1 : 0,
+          transform: isInView ? "translateY(0)" : "translateY(20px)",
+        }}
+      >
         Book A Free Demo Class
       </h1>
       <div className="row justify-content-center">
@@ -35,8 +71,14 @@ const DemoClass = () => {
           }}
         >
           <div className="row g-0 align-items-center">
-            {/* Left Image Section with LazyLoad */}
-            <div className="col-md-6 d-flex justify-content-center">
+            {/* Left Image Section */}
+            <div
+              className="col-md-6 d-flex justify-content-center"
+              style={{
+                transition: "transform 1s ease-out",
+                transform: isInView ? "scale(1)" : "scale(0.9)", // Zoom-in effect
+              }}
+            >
               <img
                 src={courseImg}
                 alt="About Us"
@@ -45,13 +87,20 @@ const DemoClass = () => {
                 style={{
                   width: "80%",
                   height: "auto",
-                  borderRadius: "0.5rem 0 0 0.5rem", // Rounded corners for the left side
+                  borderRadius: "0.5rem 0 0 0.5rem",
                 }}
               />
             </div>
 
             {/* Right Content Section */}
-            <div className="col-md-6">
+            <div
+              className="col-md-6"
+              style={{
+                transition: "opacity 1s ease-out, transform 1s ease-out",
+                opacity: isInView ? 1 : 0,
+                transform: isInView ? "translateX(0)" : "translateX(50px)", // Slide-in from right
+              }}
+            >
               <p
                 className="mb-4"
                 style={{ fontSize: "1.5rem", lineHeight: "1.8" }}

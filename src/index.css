@@ -206,6 +206,107 @@ button {
   text-decoration: underline;
 }
 
+.hidden-section {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.animate-section {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden-card {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.fade-in-card {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.fade-up {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide-in animation for the card */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade-in animation for the "Get in Touch" section */
+@keyframes fadeInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply the animations */
+.fade-in-section {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.slide-in-section {
+  animation: slideIn 1s ease-in-out forwards;
+}
+
+.fade-in-bottom-section {
+  animation: fadeInBottom 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 @media (max-width: 576px) {
   .floating-label {
     font-size: 0.875rem;
@@ -270,8 +371,8 @@ button {
   }
 
   .logo {
-    width: 70px; /* Reduced width for mobile */
-    height: 28px;
+    width: 60px !important; /* Reduced width for mobile */
+    height: 50px !important;
   }
 
   #header li {
@@ -305,3 +406,5 @@ button {
     display: block; /* Show the button on larger screens */
   }
 }
+
+

@@ -23,11 +23,21 @@ import Contact from "./Components/Contact";
 import Carrer from "./Components/Carrer";
 import Faqs from "./Components/Faqs";
 import TermsAndConditions from "./Components/TermsAndConditions";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
 
   const location = useLocation();
+  useEffect(() => {
+    AOS.init({
+      duration: 1400,
+      easing: "ease-in-out",
+      once: false,
+      mirror: true,
+    });
+  }, []);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {

@@ -1,18 +1,52 @@
 import React from "react";
 import tournament from "../assets/Tabs.jpg";
+import { useEffect, useState } from "react";
 const Tournaments = () => {
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+          }
+        });
+      },
+      {
+        threshold: 0.5,
+      }
+    );
+
+    const section = document.getElementById("about-section");
+    if (section) observer.observe(section);
+
+    return () => {
+      if (section) observer.unobserve(section);
+    };
+  }, []);
   return (
     <section
+      id="about-section"
       style={{
         width: "100%",
         height: "auto",
         backgroundColor: "#fff",
         zIndex: 1,
         padding: "4% 9%",
+        transition: "opacity 1s ease-out, transform 1s ease-out", // Add smooth transition
+        opacity: isInView ? 1 : 0, // Set opacity for fade-in effect
+        transform: isInView ? "translateY(0)" : "translateY(50px)", // Slide in from below
       }}
     >
       <div className="row align-items-center">
-        <div className="col-md-6">
+        <div
+          className="col-md-6"
+          style={{
+            transition: "transform 1s ease-out",
+            transform: isInView ? "scale(1)" : "scale(0.9)", // Add zoom effect for the image
+          }}
+        >
           <img
             src={tournament}
             loading="lazy"
@@ -25,7 +59,15 @@ const Tournaments = () => {
             }}
           />
         </div>
-        <div className="col-md-6" style={{ fontSize: "1.5rem" }}>
+        <div
+          className="col-md-6"
+          style={{
+            fontSize: "1.5rem",
+            opacity: isInView ? 1 : 0, // Fade-in text
+            transform: isInView ? "translateX(0)" : "translateX(50px)", // Slide-in from the side
+            transition: "opacity 1s ease-out, transform 1s ease-out", // Add smooth transition
+          }}
+        >
           <h1 className="fw-bolder pb-md-3 text-center display-2">
             Dark<span style={{ color: "red" }}>Light</span> Tournaments
           </h1>

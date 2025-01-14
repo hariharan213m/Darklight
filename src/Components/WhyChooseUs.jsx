@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   FaChessKnight,
   FaChalkboardTeacher,
@@ -31,12 +31,64 @@ const WhyChooseUs = () => {
       description: "Develop problem-solving and strategic thinking skills.",
     },
   ];
+
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+          }
+        });
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+
+    const section = document.getElementById("why-choose-us");
+    if (section) observer.observe(section);
+
+    return () => {
+      if (section) observer.unobserve(section);
+    };
+  }, []);
+
+
   return (
-    <section className="container my-5">
-      <h1 className="text-center mb-4 fw-bolder display-2">Why Choose Us?</h1>
+    <section
+      id="why-choose-us"
+      className="container my-5"
+      style={{
+        opacity: isInView ? 1 : 0,
+        transform: isInView ? "translateY(0)" : "translateY(50px)",
+        transition: "opacity 1s ease-out, transform 1s ease-out",
+      }}
+    >
+      <h1
+        className="text-center mb-4 fw-bolder display-2"
+        style={{
+          transition: "opacity 1s ease-out, transform 1s ease-out",
+          opacity: isInView ? 1 : 0,
+          transform: isInView ? "translateY(0)" : "translateY(-20px)",
+        }}
+      >
+        Why Choose Us?
+      </h1>
+
       <div className="row g-4 justify-content-center">
         {features.map((feature, index) => (
-          <div className="col-md-6 col-lg-6 col-sm-6" key={index}>
+          <div
+            className="col-md-6 col-lg-6 col-sm-6"
+            key={index}
+            style={{
+              opacity: isInView ? 1 : 0,
+              transform: isInView ? "translateY(0)" : `translateY(${50 + index * 20}px)`,
+              transition: `opacity 0.8s ease-out ${index * 0.2}s, transform 0.8s ease-out ${index * 0.2}s`,
+            }}
+          >
             <div className="card h-100 d-flex border-0">
               <div className="d-flex align-items-center card-body">
                 <div
@@ -63,6 +115,7 @@ const WhyChooseUs = () => {
       </div>
     </section>
   );
+
 };
 
 export default WhyChooseUs;
