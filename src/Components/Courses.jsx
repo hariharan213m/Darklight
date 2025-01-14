@@ -54,12 +54,9 @@ const Courses = () => {
           </div>
 
           {/* Cards */}
-          <div className="row justify-content-evenly">
+          <div data-aos="fade-up" className="row justify-content-evenly">
             {/* Online Class Card */}
-            <div
-              className="col-12 col-sm-6 col-md-5 col-lg-5 mb-4 d-flex justify-content-center"
-              data-aos="fade-up"
-            >
+            <div className="col-12 col-sm-6 col-md-5 col-lg-5 mb-4 d-flex justify-content-center">
               <div
                 className="card border-0"
                 style={{
@@ -114,10 +111,7 @@ const Courses = () => {
             </div>
 
             {/* Offline Class Card */}
-            <div
-              className="col-12 col-sm-6 col-md-5 col-lg-5 mb-4 d-flex justify-content-center"
-              data-aos="fade-up"
-            >
+            <div className="col-12 col-sm-6 col-md-5 col-lg-5 mb-4 d-flex justify-content-center">
               <div
                 className="card border-0"
                 style={{
@@ -141,7 +135,6 @@ const Courses = () => {
                     objectFit: "cover",
                   }}
                 />
-
                 <div className="card-body text-center">
                   <h5
                     className="card-title fw-bolder"

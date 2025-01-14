@@ -295,7 +295,6 @@ button {
     opacity: 1;
   }
 }
-
 @keyframes slideIn {
   from {
     transform: translateY(-50px);
@@ -406,5 +405,3 @@ button {
     display: block; /* Show the button on larger screens */
   }
 }
-
-
