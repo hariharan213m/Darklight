@@ -143,6 +143,68 @@ button {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Increased shadow for depth */
 }
 
+.terms-container {
+  background-color: #fff;
+  /* border: 2px solid red; */
+  border-radius: 10px;
+  padding: 30px;
+  margin: 20px auto;
+  width: 80%;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.terms-title {
+  font-family: "Arial", sans-serif;
+  color: red;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bolder;
+}
+
+.terms-intro {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.terms-section-title {
+  color: red;
+  font-size: 2rem;
+  margin-top: 30px;
+}
+
+.terms-list {
+  padding-left: 20px;
+  margin-top: 10px;
+  color: #555;
+}
+
+.terms-list li {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.terms-contact {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.terms-contact-list {
+  padding-left: 20px;
+  font-size: 1.5rem;
+}
+
+.terms-link {
+  color: #b30000;
+  text-decoration: none;
+}
+
+.terms-link:hover {
+  text-decoration: underline;
+}
 
 @media (max-width: 576px) {
   .floating-label {

@@ -22,6 +22,7 @@ import Blogs from "./Components/Blogs";
 import Contact from "./Components/Contact";
 import Carrer from "./Components/Carrer";
 import Faqs from "./Components/Faqs";
+import TermsAndConditions from "./Components/TermsAndConditions";
 
 export function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
@@ -78,6 +79,7 @@ export function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/carrer" element={<Carrer />} />
           <Route path="/faqs" element={<Faqs />} />
+          <Route path="/termsandconditions" element={<TermsAndConditions />} />
 
           {/* Catch-All Route for 404 Not Found */}
           <Route path="*" element={<Notfound />} />

@@ -117,8 +117,13 @@ const Footer = () => {
                 FAQs
               </Link>
             </li>
-            <li>
-              <p>Terms & Conditions</p>
+            <li className="mb-2">
+              <Link
+                to="termsandconditions"
+                className="text-decoration-none text-light"
+              >
+                Terms & Conditions
+              </Link>
             </li>
             <li>
               <p>Privacy Policy</p>
