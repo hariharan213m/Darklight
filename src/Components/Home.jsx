@@ -7,6 +7,8 @@ import WhyChooseUs from "./WhyChooseUs";
 import ChildCentric from "./ChildCentric";
 import Tournaments from "./Tournaments";
 import BookDemoButton from "./BookDemoButton";
+import Banner from "./Banner";
+import Feedback from "./Feedback";
 
 const Home = () => {
   return (
@@ -81,7 +83,9 @@ const Home = () => {
       <ChildCentric />
       <Tournaments />
       <Progress />
+      <Banner />
       <WhyChooseUs />
+      <Feedback />
       <BookDemoButton />
     </>
   );

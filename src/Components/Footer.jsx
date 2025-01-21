@@ -69,7 +69,7 @@ const Footer = () => {
               fontSize: "1.5rem",
             }}
           >
-            <li className="mb-2">
+            <li className="my-2">
               <Link to="about" className="text-decoration-none text-light">
                 About
               </Link>
@@ -125,12 +125,12 @@ const Footer = () => {
               fontSize: "1.5rem",
             }}
           >
-            <li className="mb-2">
+            <li className="my-2">
               <Link to="faqs" className="text-decoration-none text-light">
                 FAQs
               </Link>
             </li>
-            <li className="mb-2">
+            <li className="my-3">
               <Link
                 to="termsandconditions"
                 className="text-decoration-none text-light"
@@ -138,12 +138,20 @@ const Footer = () => {
                 Terms & Conditions
               </Link>
             </li>
-            <li>
+            <li className="my-2">
               <p>Privacy Policy</p>
             </li>
             <li>
               <Link to="carrer" className="text-decoration-none text-light">
                 Carrer
+              </Link>
+            </li>
+            <li className="my-2">
+              <Link
+                to="adminlogin"
+                className="text-decoration-none text-light "
+              >
+                Admin
               </Link>
             </li>
           </ul>

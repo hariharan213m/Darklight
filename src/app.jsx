@@ -5,7 +5,6 @@ import Home from "./Components/Home";
 import Gallery from "./Components/Gallery";
 import Footer from "./Components/Footer";
 import { Route, Routes, useLocation } from "react-router-dom";
-import "./app.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import Levels from "./Components/Levels";
@@ -25,6 +24,9 @@ import Faqs from "./Components/Faqs";
 import TermsAndConditions from "./Components/TermsAndConditions";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import AdminLogin from "./Components/AdminLogin";
+import AdminDashboard from "./Components/AdminDashboard";
+import PrivateRoute from "./Components/PrivateRoute";
 
 export function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
@@ -90,7 +92,15 @@ export function App() {
           <Route path="/carrer" element={<Carrer />} />
           <Route path="/faqs" element={<Faqs />} />
           <Route path="/termsandconditions" element={<TermsAndConditions />} />
-
+          <Route path="/adminlogin" element={<AdminLogin />} />
+          <Route
+            path="/admin-dashboard"
+            element={
+              <PrivateRoute>
+                <AdminDashboard />
+              </PrivateRoute>
+            }
+          />
           {/* Catch-All Route for 404 Not Found */}
           <Route path="*" element={<Notfound />} />
         </Routes>

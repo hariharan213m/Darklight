@@ -6,6 +6,7 @@ import {
   browserLocalPersistence,
 } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -32,8 +33,9 @@ setPersistence(auth, browserLocalPersistence)
   });
 
 // Initialize Firestore
+const storage = getStorage(app);
 const db = getFirestore(app);
 console.log("Firestore Instance Initialized:", db);
 
 // Export Firebase instances
-export { app, auth, db };
+export { app, auth, db, storage };
