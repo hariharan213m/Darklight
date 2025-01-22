@@ -30,24 +30,27 @@ const Feedback = () => {
           </h4>
           <Swiper
             modules={[Autoplay, Pagination]}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
+            autoplay={
+              feedbackList.length > 2
+                ? {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                  }
+                : false // Disable autoplay for 1 or 2 feedback items
+            }
             pagination={{ clickable: true }}
             loop={feedbackList.length > 2} // Disable loop for 1 or 2 slides
             spaceBetween={20}
             slidesPerView={isSingleFeedback ? 1 : isTwoFeedbacks ? 2 : 3}
-            centeredSlides={feedbackList.length <= 2} // Center slides if 1 or 2 items
-            breakpoints={{
-              768: {
-                slidesPerView: isSingleFeedback ? 1 : isTwoFeedbacks ? 2 : 2,
-              },
-              1024: {
-                slidesPerView: isSingleFeedback ? 1 : isTwoFeedbacks ? 2 : 3,
-              },
-            }}
-            className="my-5"
+            centeredSlides={isSingleFeedback} // Center slide if only 1 item
+            allowTouchMove={feedbackList.length > 2} // Disable touch/swipe movement for 1 or 2 feedback items
+            className={`my-5 ${
+              isSingleFeedback
+                ? "center-single-card"
+                : isTwoFeedbacks
+                ? "space-evenly-two-cards"
+                : ""
+            }`}
           >
             {feedbackList.map((feedback) => (
               <SwiperSlide key={feedback.id}>

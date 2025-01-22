@@ -431,3 +431,23 @@ button {
 
 
 
+
+/* Center the single card */
+.center-single-card .swiper-wrapper {
+  justify-content: center; /* Center the slide */
+}
+
+.center-single-card .swiper-slide {
+  flex-shrink: 0; /* Prevent shrinking */
+  width: auto !important; /* Natural width */
+}
+
+/* Space two cards evenly */
+.space-evenly-two-cards .swiper-wrapper {
+  justify-content: space-evenly; /* Space slides evenly */
+}
+
+.space-evenly-two-cards .swiper-slide {
+  flex-shrink: 0; /* Prevent shrinking */
+  width: auto !important; /* Natural width */
+}
