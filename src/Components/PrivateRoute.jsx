@@ -7,7 +7,7 @@ const PrivateRoute = ({ children }) => {
   const user = auth.currentUser;
 
   // Check if the user is logged in and is an admin
-  if (user && user.email === "harim2005haran@gmail.com") {
+  if (user && user.email === "darklightchess64@gmail.com") {
     return children; // Allow access to admin routes
   }
 
