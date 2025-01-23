@@ -121,7 +121,7 @@ const About = () => {
       >
         <div className="row">
           <div
-            className="col-md-6 d-flex align-items-center justify-content-center"
+            className="col-12 col-md-6 d-flex align-items-center justify-content-center"
             data-aos="fade-right" // Fade-in effect from the right for the first column
           >
             <div

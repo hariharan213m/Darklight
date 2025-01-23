@@ -406,6 +406,12 @@ button {
   }
 }
 
+.card-img-top {
+  width: 100%;
+  height: auto; /* Ensures the image scales correctly */
+  object-fit: cover; /* Ensures it doesn't stretch */
+}
+
 /* Banner.css */
 .banner-container {
   position: relative;
