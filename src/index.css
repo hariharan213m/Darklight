@@ -291,7 +291,6 @@ button {
   z-index: 1;
 }
 
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -322,8 +321,10 @@ button {
     font-size: 0.875rem;
   }
   .card {
-    display: block; /* Ensure it's not hidden */
-    width: 100%; /* Use full width for smaller screens */
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
   }
 }
 
@@ -419,6 +420,13 @@ button {
   width: 100%;
   height: auto; /* Ensures the image scales correctly */
   object-fit: cover; /* Ensures it doesn't stretch */
+  max-height: 500px;
+}
+
+.card {
+  -webkit-transform: translate3d(0, 0, 0); /* Force hardware acceleration */
+  -webkit-backface-visibility: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Banner.css */

@@ -117,12 +117,12 @@ const About = () => {
           zIndex: 1,
           padding: "6% 9%",
         }}
-        data-aos="fade-up" // Add a fade-up effect to the whole section
+        // data-aos="fade-up" // Add a fade-up effect to the whole section
       >
         <div className="row">
           <div
             className="col-12 col-md-6 d-flex align-items-center justify-content-center"
-            data-aos="fade-right" // Fade-in effect from the right for the first column
+            // data-aos="fade-right" // Fade-in effect from the right for the first column
           >
             <div
               className="card shadow rounded-4"
@@ -147,14 +147,14 @@ const About = () => {
                 <h1
                   className="text-dark fw-bolder"
                   style={{ fontSize: "2.5rem", letterSpacing: "1px" }}
-                  data-aos="fade-down" // Fade-in effect from the top for the heading
+                  // data-aos="fade-down" // Fade-in effect from the top for the heading
                 >
                   KARUPPASAMY
                 </h1>
                 <h4
                   className=" mb-4 fw-bold"
                   style={{ letterSpacing: ".5px", color: "green" }}
-                  data-aos="fade-up" // Fade-up effect for the subtitle
+                  // data-aos="fade-up" // Fade-up effect for the subtitle
                 >
                   CO-Founder Of Darklight
                 </h4>
@@ -165,7 +165,7 @@ const About = () => {
                     color: "red",
                     fontWeight: "bold",
                   }}
-                  data-aos="fade-up" // Fade-up effect for the quote
+                  // data-aos="fade-up" // Fade-up effect for the quote
                 >
                   "I strongly believe that chess is not only a game but a
                   lifestyle, and chess does not require an age factor to gain
