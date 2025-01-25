@@ -141,7 +141,7 @@ const About = () => {
                   height: "auto",
                   borderRadius: "0.5rem 0.5rem 0 0",
                 }}
-                data-aos="zoom-in" // Zoom-in effect for the image
+                // data-aos="zoom-in" // Zoom-in effect for the image
               />
               <div className="card-body text-center">
                 <h1
