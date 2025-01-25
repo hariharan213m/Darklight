@@ -135,7 +135,6 @@ const About = () => {
             >
               <img
                 src={img1}
-                loading="lazy"
                 alt="About Us"
                 className="card-img-top rounded-top"
                 style={{

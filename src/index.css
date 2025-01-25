@@ -286,6 +286,11 @@ button {
 .fade-in-bottom-section {
   animation: fadeInBottom 1s ease-in-out forwards;
 }
+.container-fluid {
+  overflow: visible;
+  z-index: 1;
+}
+
 
 @keyframes fadeIn {
   from {
@@ -315,6 +320,10 @@ button {
   }
   button {
     font-size: 0.875rem;
+  }
+  .card {
+    display: block; /* Ensure it's not hidden */
+    width: 100%; /* Use full width for smaller screens */
   }
 }
 
@@ -433,10 +442,6 @@ button {
   padding: 20px;
   border-radius: 10px;
 }
-
-
-
-
 
 /* Center the single card */
 .center-single-card .swiper-wrapper {

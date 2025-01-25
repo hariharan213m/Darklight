@@ -34,7 +34,7 @@ export function App() {
   const location = useLocation();
   useEffect(() => {
     AOS.init({
-      duration: 1400,
+      duration: 1300,
       easing: "ease-in-out",
       once: false,
       mirror: true,
