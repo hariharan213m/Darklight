@@ -407,7 +407,9 @@ button {
   #menu-bar {
     display: block; /* Show the button only on screens below 768px */
   }
+  
 }
+
 
 /* Media query for screens larger than 768px */
 @media (min-width: 769px) {
@@ -469,4 +471,69 @@ button {
 .space-evenly-two-cards .swiper-slide {
   flex-shrink: 0; /* Prevent shrinking */
   width: auto !important; /* Natural width */
+}
+
+.text-animation {
+  display: inline-flex;
+  gap: 0.5rem;
+  font-weight: bold;
+}
+
+.animated-word {
+  opacity: 0;
+  transform: translateY(10px);
+  display: inline-block;
+  animation: wordFade 1s ease-in-out forwards;
+}
+
+@keyframes wordFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive font size */
+.responsive-text {
+  font-size: 3.5rem; /* Default font size for large screens */
+}
+
+@media (max-width: 992px) {
+  /* Tablets */
+  .responsive-text {
+    font-size: 2.5rem;
+    margin-top: 4rem;
+  }
+}
+
+@media (max-width: 800px) {
+  /* Small tablets and large phones */
+  .responsive-text {
+    margin-top: 7rem;
+    font-size: 3rem;
+  }
+}
+@media (max-width: 768px){
+  .responsive-text {
+    margin-top: 2rem;
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Small screens */
+  .responsive-text {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner {
+    width: 100%; /* Ensure the banner adapts to smaller screens */
+    height: auto;
+  }
 }

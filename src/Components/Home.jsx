@@ -9,10 +9,12 @@ import Tournaments from "./Tournaments";
 import BookDemoButton from "./BookDemoButton";
 import Banner from "./Banner";
 import Feedback from "./Feedback";
+import AnimatedText from "./AnimatedText";
 
 const Home = () => {
   return (
     <>
+      <AnimatedText />
       <section
         className="container"
         style={{

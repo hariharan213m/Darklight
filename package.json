@@ -21,6 +21,7 @@
     "firebase": "^11.1.0",
     "framer-motion": "^11.18.0",
     "gsap": "^3.12.5",
+    "json-server": "^1.0.0-beta.3",
     "leaflet": "^1.9.4",
     "preact": "^10.25.4",
     "prop-types": "^15.8.1",

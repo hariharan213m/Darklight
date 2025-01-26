@@ -129,6 +129,15 @@ const Header = () => {
             </li>
             <li className="mx-3">
               <Link
+                to="about"
+                className="text-decoration-none text-dark"
+                onClick={() => setIsVisible(false)}
+              >
+                About
+              </Link>
+            </li>
+            <li className="mx-3">
+              <Link
                 to="courses"
                 className="text-decoration-none text-dark"
                 onClick={() => setIsVisible(false)}
@@ -161,15 +170,6 @@ const Header = () => {
                 onClick={() => setIsVisible(false)}
               >
                 Gallery
-              </Link>
-            </li>
-            <li className="mx-3">
-              <Link
-                to="about"
-                className="text-decoration-none text-dark"
-                onClick={() => setIsVisible(false)}
-              >
-                About
               </Link>
             </li>
           </ul>

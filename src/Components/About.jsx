@@ -141,7 +141,7 @@ const About = () => {
                   height: "auto",
                   borderRadius: "0.5rem 0.5rem 0 0",
                 }}
-                // data-aos="zoom-in" // Zoom-in effect for the image
+                // data-aos="zoom-in"] // Zoom-in effect for the image
               />
               <div className="card-body text-center">
                 <h1
@@ -156,7 +156,7 @@ const About = () => {
                   style={{ letterSpacing: ".5px", color: "green" }}
                   // data-aos="fade-up" // Fade-up effect for the subtitle
                 >
-                  CO-Founder Of Darklight
+                  Founder Of Darklight
                 </h4>
                 <p
                   style={{

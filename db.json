@@ -1,0 +1,10 @@
+{
+  "banner": [
+    {
+      "id": 1,
+      "title": "Sample Banner",
+      "content": "This is a sample banner.",
+      "imageUrl": "https://via.placeholder.com/150"
+    }
+  ]
+}
