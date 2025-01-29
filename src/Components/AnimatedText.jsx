@@ -19,7 +19,7 @@ const AnimatedText = () => {
     >
       <div className="text-center">
         <h1 className="text-animation display-6 responsive-text">
-          <span className="animated-word">First</span>
+          <span className="animated-word">Best</span>
           <span className="animated-word">Online</span>
           <span className="animated-word">Professional</span>
           <span className="animated-word">Chess</span>
